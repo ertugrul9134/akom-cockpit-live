@@ -1,0 +1,385 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "zorlu-psm",
+      "properties": {
+        "id": "zorlu-psm",
+        "name": "Zorlu PSM",
+        "capacity": 2190,
+        "venueType": "Indoor - Seat Selection",
+        "photoUrl": "https://ippasso.mediatriple.net/venue/20042021092353-1.jpg",
+        "rating": 4.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0161,
+          41.0666
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "volkswagen-arena",
+      "properties": {
+        "id": "volkswagen-arena",
+        "name": "Volkswagen Arena",
+        "capacity": 5000,
+        "venueType": "Indoor - Seat Selection",
+        "photoUrl": "https://www.dedasahne.com/wp-content/uploads/2018/03/Volkswagen-Arena-2.jpeg",
+        "rating": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0075,
+          41.1086
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "babylon",
+      "properties": {
+        "id": "babylon",
+        "name": "Babylon",
+        "capacity": 450,
+        "venueType": "Indoor",
+        "photoUrl": "https://www.meyhankoli.com/img/cropped/babylon-1464.jpg",
+        "rating": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9797,
+          41.0583
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "bostanci-gosteri",
+      "properties": {
+        "id": "bostanci-gosteri",
+        "name": "Bostancı Gösteri Merkezi",
+        "capacity": 2000,
+        "venueType": "Indoor - Seat Selection",
+        "photoUrl": "https://tiyatrolar.com.tr/files/location/b/bostanci-gosteri-merkezi/image/bostanci-gosteri-merkezi.jpg",
+        "rating": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.1022,
+          40.9566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "cemil-topuzlu-open",
+      "properties": {
+        "id": "cemil-topuzlu-open",
+        "name": "Cemil Topuzlu Open-Air Theatre",
+        "capacity": 3967,
+        "venueType": "Open-Air",
+        "photoUrl": "https://tiyatronline.com/isDosyalar/2017/01/25/galeri_cemil-topuzlu-acikhava-sahnes_dyPoJ-Mer4.jpg",
+        "rating": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9897,
+          41.0461
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "if-performance",
+      "properties": {
+        "id": "if-performance",
+        "name": "IF Performance Hall",
+        "capacity": 300,
+        "venueType": "Indoor",
+        "photoUrl": "https://www.unikuir.org/assets/public/news/if-performance-hall-ankara-lgbti-fobik-eylemlerine-devam-ediyor-22-01-2022.jpg",
+        "rating": 3.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0063,
+          41.0462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "salon-iksv",
+      "properties": {
+        "id": "salon-iksv",
+        "name": "Salon IKSV",
+        "capacity": 500,
+        "venueType": "Indoor",
+        "photoUrl": "https://www.arkitera.com/wp-content/uploads/2019/07/13_IKSV_Salon_CMMimarlik_Fotograf_7.jpg.jpeg",
+        "rating": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9718,
+          41.0286
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "jolly-joker",
+      "properties": {
+        "id": "jolly-joker",
+        "name": "Jolly Joker",
+        "capacity": 1000,
+        "venueType": "Indoor",
+        "photoUrl": "https://static.daktilo.com/sites/79/uploads/2018/10/25/1540448514-duman-jj-kartal-8.jpg",
+        "rating": 4.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9871,
+          41.1089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dasdas",
+      "properties": {
+        "id": "dasdas",
+        "name": "DasDas",
+        "capacity": 700,
+        "venueType": "Indoor",
+        "photoUrl": "https://www.lulutata.com/uploads/sponsor/dasdas-1576659814563.jpg",
+        "rating": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.1252,
+          40.9941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "moda-sahnesi",
+      "properties": {
+        "id": "moda-sahnesi",
+        "name": "Moda Sahnesi",
+        "capacity": 400,
+        "venueType": "Indoor",
+        "photoUrl": "https://galeri3.arkitera.com/var/albums/Haber/2014/04/16/halukar-tiyatro-806537870/BOU%20DD%20halukar%2001.jpg",
+        "rating": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0285,
+          40.9871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "tim-show-center",
+      "properties": {
+        "id": "tim-show-center",
+        "name": "Tim Show Center",
+        "capacity": 1400,
+        "venueType": "Indoor - Seat Selection",
+        "photoUrl": "http://www.timshowcenter.com/images/anasalon/2.jpg",
+        "rating": 3.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0268,
+          41.1261
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "kadikoy-sahne",
+      "properties": {
+        "id": "kadikoy-sahne",
+        "name": "Kadıköy Sahne",
+        "capacity": 350,
+        "venueType": "Indoor",
+        "photoUrl": "https://image.istanbul.net.tr/uploads/2022/09/event/kadikoy-sahne-65f7fe1c-8531-41f2-82b1-e29f6145fd0d-800.jpg",
+        "rating": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0275,
+          40.9905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "garaj-istanbul",
+      "properties": {
+        "id": "garaj-istanbul",
+        "name": "Garaj Istanbul",
+        "capacity": 1000,
+        "venueType": "Indoor",
+        "photoUrl": "https://tiyatronline.com/isDosyalar/2017/02/01/garajistanbul-sahn_l9zdLjTr0n.jpg",
+        "rating": 4.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9775,
+          41.0326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "kucukciftlik-park",
+      "properties": {
+        "id": "kucukciftlik-park",
+        "name": "KüçükÇiftlik Park",
+        "capacity": 17000,
+        "venueType": "Open-Air",
+        "photoUrl": "https://blog.biletino.com/file/2022/10/kucukciftlik-park-biletino-blog-252432.jpg",
+        "rating": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9929,
+          41.0431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "akbank-sanat",
+      "properties": {
+        "id": "akbank-sanat",
+        "name": "Akbank Sanat",
+        "capacity": 120,
+        "venueType": "Indoor",
+        "photoUrl": "https://www.anadolugezirehberi.com/wp-content/uploads/2021/10/Nefes-Dans-Projesi-Akbank-Sanatta-2.jpg",
+        "rating": 3.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9831,
+          41.036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "uniq-hall",
+      "properties": {
+        "id": "uniq-hall",
+        "name": "UNIQ Hall",
+        "capacity": 1500,
+        "venueType": "Indoor",
+        "photoUrl": "https://tiyatronline.com/isDosyalar/2017/02/04/galeri_uniq-istanbul-an_U-OxzXk6ud.jpg",
+        "rating": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0073,
+          41.1075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "harbiye-cemil",
+      "properties": {
+        "id": "harbiye-cemil",
+        "name": "Harbiye Cemil Topuzlu",
+        "capacity": 4000,
+        "venueType": "Open-Air",
+        "photoUrl": "https://b6s54eznn8xq.merlincdn.net/IBB/TheatrePlay/a6de37d04d034de2921af9c27e1cf815.jpg",
+        "rating": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.99,
+          41.0462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "besiktas-kultur",
+      "properties": {
+        "id": "besiktas-kultur",
+        "name": "Beşiktaş Kültür Merkezi",
+        "capacity": 600,
+        "venueType": "Indoor",
+        "photoUrl": "https://tiyatronline.com/isDosyalar/2017/01/29/galeri_akatlar-kultur-merkez_KBmq7EAyOB.jpg",
+        "rating": 4.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0058,
+          41.0438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "sahne-istanbul",
+      "properties": {
+        "id": "sahne-istanbul",
+        "name": "Sahne İstanbul",
+        "capacity": 800,
+        "venueType": "Indoor",
+        "photoUrl": "https://sahneistanbul.com/wp-content/uploads/2023/02/2S9A1572-1-scaled.jpg",
+        "rating": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0192,
+          41.0757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "enka-open-air",
+      "properties": {
+        "id": "enka-open-air",
+        "name": "Enka Open-Air Theatre",
+        "capacity": 2500,
+        "venueType": "Open-Air",
+        "photoUrl": "https://www.enkasanat.org/wp-content/uploads/2015/05/Open-Air-1.jpg",
+        "rating": 3.5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.0371,
+          41.1131
+        ]
+      }
+    }
+  ]
+}

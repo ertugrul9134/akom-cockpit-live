@@ -1,0 +1,102 @@
+{
+  "type": "FeatureCollection",
+  "name": "akom-ground-beats-v1",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "beat-sisli",
+      "properties": { "id": "beat-sisli", "name": "Şişli Devriye", "district": "Şişli" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [28.9883, 41.0598], [28.9962, 41.0613], [29.0021, 41.0641], [28.9985, 41.0682],
+          [28.9908, 41.0688], [28.9856, 41.0651], [28.9883, 41.0598]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "beat-besiktas",
+      "properties": { "id": "beat-besiktas", "name": "Beşiktaş Sahil", "district": "Beşiktaş" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.0064, 41.0418], [29.0102, 41.0451], [29.0156, 41.0481], [29.0181, 41.0431],
+          [29.0123, 41.0381], [29.0079, 41.0396], [29.0064, 41.0418]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "beat-uskudar",
+      "properties": { "id": "beat-uskudar", "name": "Üsküdar Sahil", "district": "Üsküdar" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.0156, 41.0237], [29.0212, 41.0250], [29.0254, 41.0226], [29.0244, 41.0182],
+          [29.0189, 41.0173], [29.0152, 41.0196], [29.0156, 41.0237]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "beat-fatih",
+      "properties": { "id": "beat-fatih", "name": "Fatih / Eminönü", "district": "Fatih" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [28.9710, 41.0173], [28.9762, 41.0162], [28.9789, 41.0123], [28.9747, 41.0094],
+          [28.9683, 41.0102], [28.9669, 41.0143], [28.9710, 41.0173]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "beat-bagcilar",
+      "properties": { "id": "beat-bagcilar", "name": "Bağcılar Merkez", "district": "Bağcılar" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [28.8551, 41.0386], [28.8612, 41.0411], [28.8651, 41.0383], [28.8631, 41.0341],
+          [28.8572, 41.0331], [28.8534, 41.0356], [28.8551, 41.0386]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "beat-pendik",
+      "properties": { "id": "beat-pendik", "name": "Pendik Sahil", "district": "Pendik" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.2299, 40.8731], [29.2351, 40.8762], [29.2393, 40.8744], [29.2401, 40.8703],
+          [29.2362, 40.8682], [29.2310, 40.8696], [29.2299, 40.8731]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "beat-kadikoy",
+      "properties": { "id": "beat-kadikoy", "name": "Kadıköy Çarşı", "district": "Kadıköy" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.0264, 40.9908], [29.0312, 40.9931], [29.0341, 40.9905], [29.0331, 40.9871],
+          [29.0286, 40.9858], [29.0251, 40.9879], [29.0264, 40.9908]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "beat-avcilar",
+      "properties": { "id": "beat-avcilar", "name": "Avcılar Sahil", "district": "Avcılar" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [28.7242, 40.9789], [28.7301, 40.9812], [28.7351, 40.9789], [28.7338, 40.9743],
+          [28.7281, 40.9728], [28.7232, 40.9751], [28.7242, 40.9789]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "FeatureCollection",
+  "name": "akom-ports-v1",
+  "features": [
+    { "type": "Feature", "id": "port-karakoy",     "properties": { "id": "port-karakoy",     "name": "Karaköy",         "kind": "ferry"   }, "geometry": { "type": "Point", "coordinates": [28.9794, 41.0247] } },
+    { "type": "Feature", "id": "port-eminonu",     "properties": { "id": "port-eminonu",     "name": "Eminönü",         "kind": "ferry"   }, "geometry": { "type": "Point", "coordinates": [28.9710, 41.0173] } },
+    { "type": "Feature", "id": "port-kabatas",     "properties": { "id": "port-kabatas",     "name": "Kabataş",         "kind": "ferry"   }, "geometry": { "type": "Point", "coordinates": [28.9923, 41.0345] } },
+    { "type": "Feature", "id": "port-uskudar",     "properties": { "id": "port-uskudar",     "name": "Üsküdar",         "kind": "ferry"   }, "geometry": { "type": "Point", "coordinates": [29.0150, 41.0259] } },
+    { "type": "Feature", "id": "port-pendik",      "properties": { "id": "port-pendik",      "name": "Pendik",          "kind": "ferry"   }, "geometry": { "type": "Point", "coordinates": [29.2299, 40.8731] } },
+    { "type": "Feature", "id": "port-yenikapi",    "properties": { "id": "port-yenikapi",    "name": "Yenikapı",        "kind": "ferry"   }, "geometry": { "type": "Point", "coordinates": [28.9532, 41.0049] } },
+    { "type": "Feature", "id": "port-haydarpasa",  "properties": { "id": "port-haydarpasa",  "name": "Haydarpaşa",      "kind": "cargo"   }, "geometry": { "type": "Point", "coordinates": [29.0181, 40.9985] } },
+    { "type": "Feature", "id": "port-bakirkoy",    "properties": { "id": "port-bakirkoy",    "name": "Bakırköy",        "kind": "ferry"   }, "geometry": { "type": "Point", "coordinates": [28.8780, 40.9700] } },
+    { "type": "Feature", "id": "port-atakoy",      "properties": { "id": "port-atakoy",      "name": "Ataköy Marina",   "kind": "marina"  }, "geometry": { "type": "Point", "coordinates": [28.8639, 40.9683] } },
+    { "type": "Feature", "id": "port-buyukcekmece","properties": { "id": "port-buyukcekmece","name": "Büyükçekmece",    "kind": "marina"  }, "geometry": { "type": "Point", "coordinates": [28.5851, 40.9745] } }
+  ]
+}

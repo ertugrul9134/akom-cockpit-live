@@ -1,0 +1,137 @@
+{
+  "type": "FeatureCollection",
+  "name": "akom-air-corridors-v1",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "corr-akom-sancaktepe",
+      "properties": { "id": "corr-akom-sancaktepe", "name": "AKOM ↔ Sancaktepe", "modality": "heli", "alt_m": 250 },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.0083, 41.0511],
+          [29.0651, 41.0395],
+          [29.1297, 41.0291],
+          [29.1844, 41.0143],
+          [29.2351, 41.0001],
+          [29.1844, 41.0143],
+          [29.1297, 41.0291],
+          [29.0651, 41.0395],
+          [29.0083, 41.0511]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "corr-flornight-loop",
+      "properties": { "id": "corr-flornight-loop", "name": "Şişli Hospital Loop", "modality": "heli", "alt_m": 180 },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [28.9893, 41.0623],
+          [28.9920, 41.0599],
+          [28.9961, 41.0552],
+          [28.9930, 41.0581],
+          [28.9893, 41.0623]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "corr-bakirkoy-istinye",
+      "properties": { "id": "corr-bakirkoy-istinye", "name": "Bakırköy ↔ İstinye", "modality": "heli", "alt_m": 320 },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [28.8731, 40.9892],
+          [28.9180, 41.0218],
+          [28.9651, 41.0540],
+          [29.0103, 41.0805],
+          [29.0581, 41.1086],
+          [29.0103, 41.0805],
+          [28.9651, 41.0540],
+          [28.9180, 41.0218],
+          [28.8731, 40.9892]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "corr-saw-acibadem",
+      "properties": { "id": "corr-saw-acibadem", "name": "SAW ↔ Acıbadem", "modality": "heli", "alt_m": 280 },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.3132, 40.8983],
+          [29.1801, 40.9412],
+          [29.0421, 40.9846],
+          [28.8973, 41.0103],
+          [28.7884, 41.0271],
+          [28.8973, 41.0103],
+          [29.0421, 40.9846],
+          [29.1801, 40.9412],
+          [29.3132, 40.8983]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "corr-tuzla-akom",
+      "properties": { "id": "corr-tuzla-akom", "name": "Tuzla ↔ AKOM", "modality": "heli", "alt_m": 220 },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.3036, 40.8198],
+          [29.2231, 40.8703],
+          [29.1409, 40.9201],
+          [29.0683, 40.9712],
+          [29.0083, 41.0511],
+          [29.0683, 40.9712],
+          [29.1409, 40.9201],
+          [29.2231, 40.8703],
+          [29.3036, 40.8198]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "airway-marmara-loiter",
+      "properties": { "id": "airway-marmara-loiter", "name": "Marmara Loiter (FL080)", "modality": "fixed", "alt_m": 2440 },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [28.7000, 40.9500],
+          [28.8500, 40.8800],
+          [29.0000, 40.8500],
+          [29.1500, 40.8700],
+          [29.3000, 40.9300],
+          [29.3500, 41.0100],
+          [29.2500, 41.0800],
+          [29.0500, 41.1100],
+          [28.8500, 41.0800],
+          [28.7200, 41.0100],
+          [28.7000, 40.9500]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "airway-bos-vertical",
+      "properties": { "id": "airway-bos-vertical", "name": "Boğaz Düşey Hattı", "modality": "fixed", "alt_m": 1800 },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.0750, 40.9200],
+          [29.0651, 41.0100],
+          [29.0510, 41.0800],
+          [29.0350, 41.1400],
+          [29.0210, 41.2100],
+          [29.0350, 41.1400],
+          [29.0510, 41.0800],
+          [29.0651, 41.0100],
+          [29.0750, 40.9200]
+        ]
+      }
+    }
+  ]
+}

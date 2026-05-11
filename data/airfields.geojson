@@ -1,0 +1,10 @@
+{
+  "type": "FeatureCollection",
+  "name": "akom-airfields-v1",
+  "features": [
+    { "type": "Feature", "id": "ist-airport",   "properties": { "id": "ist-airport",   "name": "Yeni İstanbul Havalimanı", "icao": "LTFM", "kind": "civil"   }, "geometry": { "type": "Point", "coordinates": [28.7269, 41.2750] } },
+    { "type": "Feature", "id": "saw-airport",   "properties": { "id": "saw-airport",   "name": "Sabiha Gökçen",            "icao": "LTFJ", "kind": "civil"   }, "geometry": { "type": "Point", "coordinates": [29.3132, 40.8983] } },
+    { "type": "Feature", "id": "hezarfen",      "properties": { "id": "hezarfen",      "name": "Hezarfen Havaalanı",        "icao": "LTBW", "kind": "civil"   }, "geometry": { "type": "Point", "coordinates": [28.4015, 41.0073] } },
+    { "type": "Feature", "id": "ataturk-old",   "properties": { "id": "ataturk-old",   "name": "Atatürk (Resp / Cargo)",   "icao": "LTBA", "kind": "reserve" }, "geometry": { "type": "Point", "coordinates": [28.8157, 40.9763] } }
+  ]
+}

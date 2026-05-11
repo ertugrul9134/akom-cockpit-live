@@ -1,0 +1,104 @@
+{
+  "type": "FeatureCollection",
+  "name": "akom-incidents-mock-v1",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "inc-sisli-mascal",
+      "properties": {
+        "id": "inc-sisli-mascal",
+        "label": "Şişli MASCAL",
+        "type": "mascal",
+        "severity": 5,
+        "radius_m": 850,
+        "start": "2026-05-10T11:29:00.000Z",
+        "district": "Şişli"
+      },
+      "geometry": { "type": "Point", "coordinates": [28.9912, 41.0608] }
+    },
+    {
+      "type": "Feature",
+      "id": "inc-avcilar-l7",
+      "properties": {
+        "id": "inc-avcilar-l7",
+        "label": "Avcılar L7 Çökme",
+        "type": "collapse",
+        "severity": 4,
+        "radius_m": 420,
+        "start": "2026-05-10T11:21:00.000Z",
+        "district": "Avcılar"
+      },
+      "geometry": { "type": "Point", "coordinates": [28.7242, 40.9789] }
+    },
+    {
+      "type": "Feature",
+      "id": "inc-bagcilar-l4",
+      "properties": {
+        "id": "inc-bagcilar-l4",
+        "label": "Bağcılar L4 Hasar",
+        "type": "collapse",
+        "severity": 3,
+        "radius_m": 360,
+        "start": "2026-05-10T11:14:00.000Z",
+        "district": "Bağcılar"
+      },
+      "geometry": { "type": "Point", "coordinates": [28.8551, 41.0386] }
+    },
+    {
+      "type": "Feature",
+      "id": "inc-beyoglu-fire",
+      "properties": {
+        "id": "inc-beyoglu-fire",
+        "label": "Beyoğlu Yangın",
+        "type": "fire",
+        "severity": 3,
+        "radius_m": 220,
+        "start": "2026-05-10T11:38:00.000Z",
+        "district": "Beyoğlu"
+      },
+      "geometry": { "type": "Point", "coordinates": [28.9772, 41.0319] }
+    },
+    {
+      "type": "Feature",
+      "id": "inc-uskudar-leak",
+      "properties": {
+        "id": "inc-uskudar-leak",
+        "label": "Üsküdar Gaz Kaçağı",
+        "type": "leak",
+        "severity": 3,
+        "radius_m": 180,
+        "start": "2026-05-10T11:42:00.000Z",
+        "district": "Üsküdar"
+      },
+      "geometry": { "type": "Point", "coordinates": [29.0156, 41.0237] }
+    },
+    {
+      "type": "Feature",
+      "id": "inc-pendik-port",
+      "properties": {
+        "id": "inc-pendik-port",
+        "label": "Pendik Liman Olayı",
+        "type": "hazmat",
+        "severity": 4,
+        "radius_m": 540,
+        "start": "2026-05-10T11:05:00.000Z",
+        "district": "Pendik"
+      },
+      "geometry": { "type": "Point", "coordinates": [29.2401, 40.8651] }
+    },
+    {
+      "type": "Feature",
+      "id": "inc-besiktas-flood",
+      "properties": {
+        "id": "inc-besiktas-flood",
+        "label": "Beşiktaş Su Baskını",
+        "type": "flood",
+        "severity": 2,
+        "radius_m": 280,
+        "start": "2026-05-10T11:46:00.000Z",
+        "district": "Beşiktaş"
+      },
+      "geometry": { "type": "Point", "coordinates": [29.0064, 41.0418] }
+    }
+  ]
+}

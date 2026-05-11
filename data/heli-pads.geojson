@@ -1,0 +1,116 @@
+{
+  "type": "FeatureCollection",
+  "name": "akom-heli-pads-v1",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "pad-acibadem-atakent",
+      "properties": {
+        "id": "pad-acibadem-atakent",
+        "name": "Acıbadem Atakent",
+        "kind": "hospital",
+        "elev_m": 35
+      },
+      "geometry": { "type": "Point", "coordinates": [28.7884, 41.0271] }
+    },
+    {
+      "type": "Feature",
+      "id": "pad-memorial-sisli",
+      "properties": {
+        "id": "pad-memorial-sisli",
+        "name": "Memorial Şişli",
+        "kind": "hospital",
+        "elev_m": 96
+      },
+      "geometry": { "type": "Point", "coordinates": [28.9893, 41.0623] }
+    },
+    {
+      "type": "Feature",
+      "id": "pad-flornight-sisli",
+      "properties": {
+        "id": "pad-flornight-sisli",
+        "name": "Florence Nightingale Şişli",
+        "kind": "hospital",
+        "elev_m": 88
+      },
+      "geometry": { "type": "Point", "coordinates": [28.9961, 41.0552] }
+    },
+    {
+      "type": "Feature",
+      "id": "pad-sancaktepe",
+      "properties": {
+        "id": "pad-sancaktepe",
+        "name": "Sancaktepe Komuta Pisti",
+        "kind": "military",
+        "elev_m": 132
+      },
+      "geometry": { "type": "Point", "coordinates": [29.2351, 41.0001] }
+    },
+    {
+      "type": "Feature",
+      "id": "pad-akom-hq",
+      "properties": {
+        "id": "pad-akom-hq",
+        "name": "AKOM Genel Merkez",
+        "kind": "civil",
+        "elev_m": 64
+      },
+      "geometry": { "type": "Point", "coordinates": [29.0083, 41.0511] }
+    },
+    {
+      "type": "Feature",
+      "id": "pad-bezmialem-fatih",
+      "properties": {
+        "id": "pad-bezmialem-fatih",
+        "name": "Bezmiâlem Vakıf",
+        "kind": "hospital",
+        "elev_m": 38
+      },
+      "geometry": { "type": "Point", "coordinates": [28.9326, 41.0148] }
+    },
+    {
+      "type": "Feature",
+      "id": "pad-kartal-egitim",
+      "properties": {
+        "id": "pad-kartal-egitim",
+        "name": "Kartal Dr. Lütfi Kırdar",
+        "kind": "hospital",
+        "elev_m": 28
+      },
+      "geometry": { "type": "Point", "coordinates": [29.1809, 40.9011] }
+    },
+    {
+      "type": "Feature",
+      "id": "pad-istinye-mlpcare",
+      "properties": {
+        "id": "pad-istinye-mlpcare",
+        "name": "İstinye Üniversite Hastanesi",
+        "kind": "hospital",
+        "elev_m": 110
+      },
+      "geometry": { "type": "Point", "coordinates": [29.0581, 41.1086] }
+    },
+    {
+      "type": "Feature",
+      "id": "pad-bakirkoy-sadi",
+      "properties": {
+        "id": "pad-bakirkoy-sadi",
+        "name": "Bakırköy Sadi Konuk",
+        "kind": "hospital",
+        "elev_m": 24
+      },
+      "geometry": { "type": "Point", "coordinates": [28.8731, 40.9892] }
+    },
+    {
+      "type": "Feature",
+      "id": "pad-tuzla-dz-kk",
+      "properties": {
+        "id": "pad-tuzla-dz-kk",
+        "name": "Tuzla Deniz K.K.",
+        "kind": "military",
+        "elev_m": 8
+      },
+      "geometry": { "type": "Point", "coordinates": [29.3036, 40.8198] }
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "type": "FeatureCollection",
+  "name": "akom-sea-lanes-v1",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "lane-bos-rumeli",
+      "properties": { "id": "lane-bos-rumeli", "name": "Boğaz Hattı (N-S)", "kind": "transit" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.0951, 41.2400],
+          [29.0701, 41.1850],
+          [29.0421, 41.1340],
+          [29.0220, 41.0850],
+          [29.0050, 41.0500],
+          [28.9794, 41.0247],
+          [28.9710, 41.0080],
+          [29.0050, 41.0500],
+          [29.0220, 41.0850],
+          [29.0421, 41.1340],
+          [29.0701, 41.1850],
+          [29.0951, 41.2400]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "lane-karakoy-uskudar",
+      "properties": { "id": "lane-karakoy-uskudar", "name": "Karaköy ↔ Üsküdar", "kind": "shuttle" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [28.9794, 41.0247],
+          [28.9920, 41.0260],
+          [29.0030, 41.0265],
+          [29.0150, 41.0259],
+          [29.0030, 41.0265],
+          [28.9920, 41.0260],
+          [28.9794, 41.0247]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "lane-kabatas-uskudar",
+      "properties": { "id": "lane-kabatas-uskudar", "name": "Kabataş ↔ Üsküdar", "kind": "shuttle" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [28.9923, 41.0345],
+          [29.0021, 41.0320],
+          [29.0091, 41.0290],
+          [29.0150, 41.0259],
+          [29.0091, 41.0290],
+          [29.0021, 41.0320],
+          [28.9923, 41.0345]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "lane-pendik-yenikapi",
+      "properties": { "id": "lane-pendik-yenikapi", "name": "Pendik ↔ Yenikapı (Marmara doğu)", "kind": "transit" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.2299, 40.8731],
+          [29.1421, 40.8920],
+          [29.0526, 40.9230],
+          [28.9532, 41.0049],
+          [29.0526, 40.9230],
+          [29.1421, 40.8920],
+          [29.2299, 40.8731]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "lane-yenikapi-buyukcekmece",
+      "properties": { "id": "lane-yenikapi-buyukcekmece", "name": "Yenikapı ↔ Büyükçekmece (Marmara batı)", "kind": "transit" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [28.9532, 41.0049],
+          [28.8780, 40.9700],
+          [28.8639, 40.9683],
+          [28.7280, 40.9712],
+          [28.5851, 40.9745],
+          [28.7280, 40.9712],
+          [28.8639, 40.9683],
+          [28.8780, 40.9700],
+          [28.9532, 41.0049]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "lane-haydarpasa-yenikapi",
+      "properties": { "id": "lane-haydarpasa-yenikapi", "name": "Haydarpaşa ↔ Yenikapı (cross-Marmara)", "kind": "shuttle" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [29.0181, 40.9985],
+          [28.9870, 40.9970],
+          [28.9532, 41.0049],
+          [28.9870, 40.9970],
+          [29.0181, 40.9985]
+        ]
+      }
+    }
+  ]
+}
