@@ -61,6 +61,72 @@
 
   if (!feedEl) return; // Safety
 
+  // ── Militaristic alert audio (user-gated; browsers block autoplay) ──
+  let audioEnabled = false;
+  let audioCtx = null;
+  function ensureAudio() {
+    if (!audioCtx) {
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        audioCtx = Ctx ? new Ctx() : null;
+      } catch (e) {
+        audioCtx = null;
+      }
+    }
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  }
+  function pingAlert(typeId) {
+    if (!audioEnabled) return;
+    ensureAudio();
+    if (!audioCtx) return;
+    const now = audioCtx.currentTime;
+    const urgent = typeId === 'collapse' || typeId === 'mascal' || typeId === 'trapped';
+    // Two-tone militaristic alert; sharper + higher when urgent.
+    const freqs = urgent ? [920, 1380] : [620, 930];
+    freqs.forEach((f, i) => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'square';
+      osc.frequency.value = f;
+      const t0 = now + i * 0.11;
+      gain.gain.setValueAtTime(0.0001, t0);
+      gain.gain.exponentialRampToValueAtTime(urgent ? 0.22 : 0.15, t0 + 0.012);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.10);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(t0);
+      osc.stop(t0 + 0.13);
+    });
+  }
+  // Inject a "SES" (sound) toggle pill above the feed (no emoji per house style).
+  (function injectAudioToggle() {
+    const host = feedEl.parentElement;
+    if (!host) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'ihbar-audio-toggle';
+    btn.setAttribute('aria-pressed', 'false');
+    function paint() {
+      btn.textContent = audioEnabled ? 'SES: ACIK' : 'SES: KAPALI';
+      btn.style.cssText =
+        'display:inline-flex;align-items:center;gap:6px;margin:0 0 8px;padding:5px 12px;' +
+        'font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;cursor:pointer;' +
+        'border-radius:9999px;transition:all .2s ease-out;' +
+        (audioEnabled
+          ? 'background:#F59E0B;color:#0A0A0F;border:1px solid #F59E0B;box-shadow:0 0 16px rgba(245,158,11,.4);'
+          : 'background:transparent;color:#FAFAFA;border:1px solid rgba(255,255,255,.15);');
+    }
+    btn.addEventListener('click', () => {
+      audioEnabled = !audioEnabled;
+      btn.setAttribute('aria-pressed', String(audioEnabled));
+      ensureAudio();
+      paint();
+      if (audioEnabled) pingAlert('test'); // confirm + unlock on the user gesture
+    });
+    paint();
+    host.insertBefore(btn, feedEl);
+  })();
+
   // ── Incident data pool ──
   const incidentTypes = [
     { id: 'collapse', label: 'Collapse', sym: 'sar', chipClass: 'chip--red', status: 'NEW' },
@@ -240,6 +306,7 @@
 
     rows.push(event);
     totalEvents++;
+    pingAlert(typeId); // militaristic alert tone when a new report lands (if SES on)
     render();
   }
 

@@ -591,6 +591,39 @@
           </div>
         </article>
 
+        <!-- ── CODE SNAPSHOTS ── -->
+        <article class="mimari-card glass-card reveal" aria-labelledby="mim-code">
+          <span class="kicker">// CODE SNAPSHOTS</span>
+          <h3 class="mimari-card__title" id="mim-code">The Connective Tissue, In Code</h3>
+          <p class="mimari-card__desc">A few real excerpts showing how the pieces actually wire together.</p>
+
+          <figure class="code-snap" style="margin:14px 0 0;">
+            <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#71717A;margin-bottom:6px;">deck.gl renders 3D inside MapLibre's WebGL2 context — one loop, depth-correct</figcaption>
+            <pre style="margin:0;padding:14px 16px;background:#12121A;border:1px solid rgba(255,255,255,.08);border-left:3px solid #F59E0B;border-radius:8px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.6;color:#e4e4e7;"><code>// MapHost.tsx — overlay shares the map's GL context (no Three.js)
+&lt;DeckOverlay map={mapReady} layers={layers} /&gt;</code></pre>
+          </figure>
+
+          <figure class="code-snap" style="margin:14px 0 0;">
+            <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#71717A;margin-bottom:6px;">A* over the İBB road graph — units route on real streets</figcaption>
+            <pre style="margin:0;padding:14px 16px;background:#12121A;border:1px solid rgba(255,255,255,.08);border-left:3px solid #F59E0B;border-radius:8px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.6;color:#e4e4e7;"><code>// PatrolEngine.ts — haversine-admissible A*, bounded expansion
+const route = graph.route(fromNode, toNode, /* maxExpand */ 20_000);
+parkAndQueue(unit, route);  // lazy legs, MAX_ROUTES_PER_TICK budget</code></pre>
+          </figure>
+
+          <figure class="code-snap" style="margin:14px 0 0;">
+            <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#71717A;margin-bottom:6px;">15,000+ satellites propagated off-thread, returned as packed arrays</figcaption>
+            <pre style="margin:0;padding:14px 16px;background:#12121A;border:1px solid rgba(255,255,255,.08);border-left:3px solid #F59E0B;border-radius:8px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.6;color:#e4e4e7;"><code>// GlobeHost.tsx — SGP4 in a Web Worker, 1.5 Hz
+const out = await worker.propagate(Date.now());
+setSatData(decodeSatPositions(out.positions, out.noradIds));</code></pre>
+          </figure>
+
+          <figure class="code-snap" style="margin:14px 0 0;">
+            <figcaption style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#71717A;margin-bottom:6px;">Deterministic earthquake — same seed, identical run</figcaption>
+            <pre style="margin:0;padding:14px 16px;background:#12121A;border:1px solid rgba(255,255,255,.08);border-left:3px solid #F59E0B;border-radius:8px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.6;color:#e4e4e7;"><code>// ScenarioEngine.ts — pure, all randomness consumed at construction
+tick(simMs): { damageByDistrict, surgeMultiplier, dispatchTargets, infraFailures }</code></pre>
+          </figure>
+        </article>
+
         <!-- ── 2. STATE & REACTIVITY ── -->
         <article class="mimari-card glass-card reveal" aria-labelledby="mim-2">
           <span class="kicker">// 02 · STATE &amp; REACTIVITY</span>
