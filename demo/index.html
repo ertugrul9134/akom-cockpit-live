@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AKOM — Afet Koordinasyon Merkezi: İstanbul için gerçek zamanlı jeo-uzamsal komuta-kontrol kokpiti. Çalışan prototip demo.">
+  <title>AKOM · Afet Koordinasyon Merkezi — Komuta Kokpiti Demo</title>
+
+  <!-- Fonts: Space Grotesk (display/headlines) + Inter (body) + JetBrains Mono (mono labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient orbs -->
+  <div class="orbs" aria-hidden="true">
+    <div class="orb orb--top"></div>
+    <div class="orb orb--bottom"></div>
+  </div>
+
+  <!-- Noise overlay -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- ═══════════ STICKY TOP NAV ═══════════ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Ana navigasyon">
+    <div class="nav__inner">
+      <a href="#" class="nav__brand" aria-label="AKOM ana sayfa">
+        <span class="nav__wordmark">AKOM</span>
+        <span class="nav__tagline">Afet Koordinasyon Merkezi</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="#overview">Genel Bakış</a></li>
+        <li><a href="#capabilities">Yetenekler</a></li>
+        <li><a href="#scenario">Senaryo</a></li>
+        <li><a href="#tabs">Görevler</a></li>
+        <li><a href="#mimari">Mimari</a></li>
+      </ul>
+      <a href="https://ertugrul9134.github.io/akom-cockpit-live/" class="btn btn--primary nav__cta" target="_blank" rel="noopener">
+        CANLI DEMO <span class="nav__cta-arrow">↗</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <header class="hero" id="hero">
+    <div class="hero__inner">
+      <div class="hero__badge">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        CANLI PROTOTİP · İSTANBUL
+      </div>
+      <h1 class="hero__headline">
+        İstanbul için gerçek zamanlı<br>jeo-uzamsal komuta kokpiti
+      </h1>
+      <p class="hero__subhead">
+        AKOM — Afet Koordinasyon Merkezi. Canlı sensör verileri, araç filoları, kamera ağları,
+        uydu takibi, deniz-hava trafiği ve OSINT olayları interaktif bir 3B haritada.
+        Yüksek olasılıklı Marmara depremi senaryosu için inşa edilmiş, çalışan bir prototip.
+      </p>
+      <div class="hero__actions">
+        <a href="https://ertugrul9134.github.io/akom-cockpit-live/" class="btn btn--primary btn--lg" target="_blank" rel="noopener">
+          Kokpiti Canlı Dene ↗
+        </a>
+        <a href="#overview" class="btn btn--secondary btn--lg">
+          Keşfet ↓
+        </a>
+      </div>
+      <div class="hero__frame">
+        <img src="assets/ops-tactical.png" alt="AKOM kokpiti — Operasyon sekmesi, taktik karanlık tema. İstanbul haritası üzerinde 3.000 birimlik araç konuşlandırması, amber vurgulu komuta paneli." width="1200" height="675" loading="eager">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════ CONTEXT STRIP ═══════════ -->
+    <section class="strip" id="overview" aria-labelledby="strip-heading">
+      <div class="strip__inner">
+        <p class="strip__text" id="strip-heading">
+          İstanbul, önümüzdeki 30 yıl içinde <strong>Mw 7+ Marmara depremi</strong> ile karşı karşıya.
+          AKOM, krizin ilk saatlerinde komuta-kontrol, durumsal farkındalık ve kaynak koordinasyonu için
+          sıfırdan inşa edilmiş, tarayıcı tabanlı bir kokpittir.
+        </p>
+        <ul class="strip__stats" role="list">
+          <li class="stat">
+            <span class="stat__value">10</span>
+            <span class="stat__label">görev sekmesi</span>
+          </li>
+          <li class="stat">
+            <span class="stat__value">3.000</span>
+            <span class="stat__label">birim</span>
+          </li>
+          <li class="stat">
+            <span class="stat__value">632</span>
+            <span class="stat__label">kamera</span>
+          </li>
+          <li class="stat">
+            <span class="stat__value">15.000+</span>
+            <span class="stat__label">uydu</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════ CAPABILITY WALKTHROUGH ═══════════ -->
+    <section class="caps" id="capabilities" aria-label="Yetenekler">
+      <div class="caps__inner">
+
+        <!-- ── KÜRE / Satellites ── -->
+        <article class="cap cap--img-right reveal" aria-labelledby="cap-kure">
+          <div class="cap__body">
+            <span class="kicker">// 01 · KÜRESEL GÖRÜNÜM</span>
+            <h2 class="cap__title" id="cap-kure">KÜRE — 15.000+ Uydu ile Durumsal Farkındalık</h2>
+            <p class="cap__desc">
+              MapLibre küre projeksiyonunda NASA BlueMarble altlık haritası. 15.000'den fazla aktif uydu,
+              SGP4 yörünge modeliyle bir Web Worker içinde gerçek zamanlı olarak hesaplanır ve küre üzerinde
+              canlı olarak gösterilir. Operasyonel bindirme katmanları ile tam spektrumlu uzay farkındalığı.
+            </p>
+          </div>
+          <div class="cap__media">
+            <div class="glass-frame">
+              <img src="assets/snapshot2.jpg" alt="KÜRE sekmesi — MapLibre küre projeksiyonu. NASA BlueMarble altlık üzerinde 15.000+ uydu pozisyonu, SGP4 yörünge hesaplamalı canlı gösterim." width="600" height="338" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <!-- ── C2 Board ── -->
+        <article class="cap cap--img-left reveal" aria-labelledby="cap-c2">
+          <div class="cap__media">
+            <div class="glass-frame">
+              <img src="assets/c2-board.png" alt="C2 Komuta Kontrol sekmesi — Kanban panosu. DELIBERATE→DYNAMIC→PENDING→PAIRED→EXECUTION→COMPLETE hattı. Maven detay çekmecesi, birim eşleştirme, onay zinciri." width="600" height="338" loading="lazy">
+            </div>
+          </div>
+          <div class="cap__body">
+            <span class="kicker">// 02 · KOMUTA KONTROL</span>
+            <h2 class="cap__title" id="cap-c2">C2 — Komuta Kontrol Kanban Panosu</h2>
+            <p class="cap__desc">
+              Maven tipi görev kartları, altı aşamalı sevk hattından geçer: DELIBERATE → DYNAMIC →
+              PENDING → PAIRED → EXECUTION → COMPLETE. Her karta bağlı detay çekmecesi; birim eşleştirme,
+              onay zinciri, istihbarat notları ve haritaya uçuş (fly-to) içerir.
+            </p>
+          </div>
+        </article>
+
+        <!-- ── GÖRÜ / Cameras ── -->
+        <article class="cap cap--img-right reveal" aria-labelledby="cap-goru">
+          <div class="cap__body">
+            <span class="kicker">// 03 · GÖRÜNTÜLEME</span>
+            <h2 class="cap__title" id="cap-goru">GÖRÜ — 632 Kameralı İBB Ağı + Görüş Konileri</h2>
+            <p class="cap__desc">
+              632 İBB PTZ kamerasının görüş alanı konileri, kapsama / kör nokta / yedeklilik analizi ile
+              birlikte harita üzerinde. İstanbul turizm kamera ızgarası (18 nokta) gerçek kaydedilmiş
+              örnek kareler ve kısa klipler gösterir — İBB CCTV tarayıcıda gömülemediği için dürüstçe
+              etiketlenmiş SIM önizlemeler.
+            </p>
+          </div>
+          <div class="cap__media">
+            <div class="glass-frame">
+              <img src="assets/goru-coverage.png" alt="GÖRÜ sekmesi — 632 İBB PTZ kamerasının görüş alanı konileri ile İstanbul haritası. Kamera kapsama ve kör nokta analizi." width="600" height="338" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Camera media inset ── -->
+        <article class="cap cap--img-left reveal" aria-labelledby="cap-cameras">
+          <div class="cap__media">
+            <div class="glass-frame">
+              <img src="assets/camera-grid.png" alt="Kamera ızgarası — 18 İstanbul turizm kamerası, gerçek kaydedilmiş örnek karelerle. Kız Kulesi, Sultanahmet, Taksim Meydanı, Salacak ve diğer noktalar." width="600" height="338" loading="lazy">
+            </div>
+          </div>
+          <div class="cap__body">
+            <span class="kicker">// 03b · KAMERA MEDYA</span>
+            <h2 class="cap__title" id="cap-cameras">Kaydedilmiş Kamera Örnekleri</h2>
+            <p class="cap__desc">
+              İBB'nin canlı kamera akışları tarayıcıda gösterilemez (X-Frame-Options: SAMEORIGIN + CSP kısıtı).
+              AKOM bu dürüstlüğü benimser: her kamera kutucuğu, sunucu tarafında önceden alınmış
+              gerçek İstanbul görüntülerini gösterir ve SIM olarak etiketler. Tauri masaüstü kabuğunda
+              canlı akış denenebilir.
+            </p>
+          </div>
+        </article>
+
+        <!-- ── OPERASYON / 3000-unit patrols ── -->
+        <article class="cap cap--img-right reveal" aria-labelledby="cap-ops">
+          <div class="cap__body">
+            <span class="kicker">// 04 · OPERASYON</span>
+            <h2 class="cap__title" id="cap-ops">OPERASYON — 3.000 Birim, A* ile Gerçek Yol Grafında</h2>
+            <p class="cap__desc">
+              3.000 adede kadar simüle edilmiş araç birimi, İBB'nin gerçek CKAN yol verisi üzerinde
+              A* (A-yıldız) patika bulma algoritmasıyla hareket eder. Dağıtım dalgaları, öncelikli
+              güzergahlar ve bölge bazlı yoğunluk ısı haritası ile tam ölçekli operasyon simülasyonu.
+            </p>
+          </div>
+          <div class="cap__media">
+            <div class="glass-frame">
+              <img src="assets/scale-3000.png" alt="OPERASYON sekmesi — 3.000 simüle birim İstanbul haritasında A* patika bulma ile konuşlandırılmış. Ölçek testi." width="600" height="338" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Marmara Scenario + Choropleth ── -->
+        <article class="cap cap--img-left reveal" aria-labelledby="cap-scenario">
+          <div class="cap__media">
+            <div class="glass-frame">
+              <img src="assets/scenario-choropleth.png" alt="Marmara deprem senaryosu — ilçe bazlı hasar choropleth haritası. Deterministik Mw 7.5 senaryosu, zemin büyütmesi, T+ faz göstergesi." width="600" height="338" loading="lazy">
+            </div>
+          </div>
+          <div class="cap__body">
+            <span class="kicker">// 05 · SENARYO MOTORU</span>
+            <h2 class="cap__title" id="cap-scenario">Deterministik Mw 7.5 Marmara Senaryosu</h2>
+            <p class="cap__desc">
+              Tekrarlanabilir deprem simülasyonu: ilçe bazlı zemin büyütmesine bağlı deterministik hasar
+              zayıflaması, hasar choropleth haritası, ani talep çarpanı, sevk dalgaları ve altyapı
+              kademeli çöküşü. T+ kronometresi, SAFHA göstergesi ve 1×/4×/16× hız kontrolü ile
+              operatör eğitimi ve planlama için ideal.
+            </p>
+          </div>
+        </article>
+
+        <!-- ── Dual Theme ── -->
+        <article class="cap cap--img-right reveal" aria-labelledby="cap-theme">
+          <div class="cap__body">
+            <span class="kicker">// 06 · ÇİFT TEMA</span>
+            <h2 class="cap__title" id="cap-theme">İkili Tema — Net Komuta &amp; Taktik Karanlık</h2>
+            <p class="cap__desc">
+              AKOM iki tamamlayıcı tema sunar: beyaz üzerine temiz komuta teması (gündüz operasyonları,
+              raporlama) ve amber-siyah taktik tema (gece vardiyası, kriz anı). Her iki tema da
+              tüm 10 görev sekmesinde eksiksiz çalışır ve tercih kalıcı olarak saklanır.
+            </p>
+          </div>
+          <div class="cap__media cap__media--dual">
+            <div class="glass-frame">
+              <img src="assets/ops-pristine.png" alt="AKOM operasyon sekmesi — temiz komuta teması (açık). Beyaz zemin üzerinde operasyon paneli." width="280" height="197" loading="lazy">
+            </div>
+            <div class="glass-frame">
+              <img src="assets/ops-tactical.png" alt="AKOM operasyon sekmesi — taktik karanlık tema. Amber vurgulu koyu arayüz." width="280" height="197" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Map Event Legend ── -->
+        <article class="cap cap--img-left reveal" aria-labelledby="cap-legend">
+          <div class="cap__media cap__media--dual">
+            <div class="glass-frame">
+              <img src="assets/legend-tactical.png" alt="Harita olay lejantı — taktik karanlık tema. C2/OSINT olay tipleri renk kodlu: çöküntü/MASCAL kırmızı, yangın turuncu, sel mavi, gaz sarısı, HAZMAT mor." width="280" height="197" loading="lazy">
+            </div>
+            <div class="glass-frame">
+              <img src="assets/legend-ops.png" alt="Harita olay lejantı — açık komuta teması. Aynı renk kodlaması beyaz zeminde." width="280" height="197" loading="lazy">
+            </div>
+          </div>
+          <div class="cap__body">
+            <span class="kicker">// 07 · OLAY LEJANTI</span>
+            <h2 class="cap__title" id="cap-legend">Harita Olay Lejantı — Renk Kodlu Acil Durum Tipleri</h2>
+            <p class="cap__desc">
+              C2 ve OSINT olay tipleri tutarlı bir renk paletiyle kodlanır: Çöküntü / MASCAL kırmızı,
+              yangın turuncu, sel mavi, gaz kaçağı sarı, HAZMAT mor. Hasar seviyeleri gradyan ile
+              gösterilir. Her iki temada da okunaklı ve anında tanınabilir.
+            </p>
+          </div>
+        </article>
+
+        <!-- ── Live ADS-B ── -->
+        <article class="cap cap--img-right reveal" aria-labelledby="cap-adsb">
+          <div class="cap__body">
+            <span class="kicker">// 08 · CANLI HAVA TRAFİĞİ</span>
+            <h2 class="cap__title" id="cap-adsb">Canlı ADS-B — OpenSky ile İstanbul Üzeri Uçuşlar</h2>
+            <p class="cap__desc">
+              OpenSky Network halka açık API'si üzerinden İstanbul hava sahasındaki ticari uçuşlar
+              gerçek zamanlı olarak alınır ve haritada gösterilir. Çevrimdışı durumda dürüst bir SIM
+              yedeğine geçer — her veri noktası kaynak etiketlidir (LIVE / SIM).
+            </p>
+          </div>
+          <div class="cap__media">
+            <div class="glass-frame">
+              <img src="assets/snapshot1.jpg" alt="AKOM kokpiti genel görünüm — İstanbul üzerinde canlı ADS-B uçuş trafiği, araç filoları ve sensör katmanları." width="600" height="338" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Honesty Doctrine ── -->
+        <article class="cap cap--img-left reveal" aria-labelledby="cap-honesty">
+          <div class="cap__media cap__media--triple">
+            <div class="glass-frame">
+              <img src="assets/cam-3d.png" alt="Kamera 3B görünümü — İstanbul üzerinde kamera konumları ve görüş konileri." width="180" height="135" loading="lazy">
+            </div>
+            <div class="glass-frame">
+              <img src="assets/cam-detail.png" alt="Kamera detay paneli — seçili kameranın kaydedilmiş görüntüsü ve meta verileri." width="180" height="135" loading="lazy">
+            </div>
+            <div class="glass-frame">
+              <img src="assets/cam-hover.png" alt="Kamera üzerine gelme durumu — görüş konisi vurgulanmış, etiketli." width="180" height="135" loading="lazy">
+            </div>
+          </div>
+          <div class="cap__body">
+            <span class="kicker">// 09 · DÜRÜSTLÜK DOKTRİNİ</span>
+            <h2 class="cap__title" id="cap-honesty">Her Değer Kaynak Etiketli — Dürüstlük Doktrini</h2>
+            <p class="cap__desc">
+              AKOM'un temel ilkesi: operatör her zaman neyin gerçek, neyin simüle olduğunu bilmelidir.
+              Her veri noktası kaynağıyla etiketlenir — KRDAE · AFAD · İBB · ICAO · AIS · TLE · OSINT ·
+              EST · SIM. Kameralar tarayıcıda gömülemediğinde SIM etiketiyle kaydedilmiş kareler gösterilir.
+              Bu bir zayıflık değil, bir <em>satış noktasıdır</em>.
+            </p>
+          </div>
+        </article>
+
+        <!-- ── Infrastructure Cascade ── -->
+        <article class="cap cap--img-right reveal" aria-labelledby="cap-altyapi">
+          <div class="cap__body">
+            <span class="kicker">// 10 · ALTYAPI KASKADI</span>
+            <h2 class="cap__title" id="cap-altyapi">Altyapı Kademeli Çöküş Paneli</h2>
+            <p class="cap__desc">
+              Deprem sonrası elektrik, su ve doğalgaz şebekelerinin kademeli çöküşünü modelleyen
+              etkileşimli panel. T+ zaman çizelgesinde arıza yayılımı, ilçe bazlı etki skorları
+              ve kritik altyapı varlıklarının durum takibi.
+            </p>
+          </div>
+          <div class="cap__media cap__media--dual">
+            <div class="glass-frame">
+              <img src="assets/panel-altyapi-t0.png" alt="Altyapı paneli T+0 — deprem öncesi durum. Tüm şebekeler çalışır durumda." width="280" height="197" loading="lazy">
+            </div>
+            <div class="glass-frame">
+              <img src="assets/panel-altyapi-t1.png" alt="Altyapı paneli T+1 — deprem sonrası kademeli çöküş. Elektrik, su ve gaz şebekelerinde yayılan arızalar." width="280" height="197" loading="lazy">
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ CANLI İHBAR · OLAY AKIŞI ═══════════ -->
+    <section class="ihbar" id="scenario" aria-labelledby="ihbar-heading">
+      <div class="ihbar__inner reveal">
+        <div class="ihbar__header">
+          <div class="ihbar__title-row">
+            <span class="pulse-dot pulse-dot--live" aria-hidden="true"></span>
+            <h2 class="ihbar__heading" id="ihbar-heading">CANLI İHBAR · OLAY AKIŞI</h2>
+          </div>
+          <div class="ihbar__counters">
+            <span class="ihbar__counter">AKTİF OLAY <strong id="active-count">0</strong></span>
+            <span class="ihbar__counter">BUGÜN İHBAR <strong id="total-count">0</strong></span>
+          </div>
+          <p class="ihbar__disclaimer">
+            <span class="kicker">SIMÜLASYON DEMO BESLEMESİ</span>
+            Bu panel, Marmara senaryosu bağlamında canlı İHBAR ve olay alımının nasıl görüneceğini
+            gösteren simüle edilmiş bir demo akışıdır. Kokpitin dürüstlük doktriniyle uyumludur.
+          </p>
+        </div>
+
+        <!-- Legend row -->
+        <div class="ihbar__legend" aria-label="Olay tipi renk kodları">
+          <span class="chip chip--red">Çöküntü / MASCAL</span>
+          <span class="chip chip--orange">Yangın</span>
+          <span class="chip chip--blue">Sel</span>
+          <span class="chip chip--yellow">Gaz Kaçağı</span>
+          <span class="chip chip--violet">HAZMAT</span>
+        </div>
+
+        <!-- Feed container (populated by JS) -->
+        <div class="ihbar__feed" id="ihbar-feed" role="log" aria-live="polite" aria-label="Canlı ihbar akışı">
+          <!-- JS fills this -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ THE 10 TABS ═══════════ -->
+    <section class="tabs-section" id="tabs" aria-labelledby="tabs-heading">
+      <div class="tabs-section__inner reveal">
+        <span class="kicker">// GÖREV SEKMELERİ</span>
+        <h2 class="tabs-section__heading" id="tabs-heading">10 Görev Sekmesi</h2>
+        <p class="tabs-section__sub">Her sekme, kriz koordinasyonunun bir boyutunu yönetir.</p>
+
+        <div class="tabs-grid">
+          <!-- 01 KÜRE -->
+          <div class="tab-card glass-card">
+            <div class="tab-card__icon">
+              <svg class="sym" aria-hidden="true"><use href="assets/2525d.svg#satellite"/></svg>
+            </div>
+            <div class="tab-card__body">
+              <span class="tab-card__num">01</span>
+              <h3 class="tab-card__title">KÜRE</h3>
+              <p class="tab-card__desc">Küresel durumsal görünüm · 15.000+ uydu · NASA BlueMarble altlık</p>
+            </div>
+          </div>
+
+          <!-- 02 C2 -->
+          <div class="tab-card glass-card">
+            <div class="tab-card__icon">
+              <svg class="sym" aria-hidden="true"><use href="assets/2525d.svg#pol"/></svg>
+            </div>
+            <div class="tab-card__body">
+              <span class="tab-card__num">02</span>
+              <h3 class="tab-card__title">C2 · Komuta Kontrol</h3>
+              <p class="tab-card__desc">Kanban sevk panosu · Maven detay çekmecesi · onay zinciri</p>
+            </div>
+          </div>
+
+          <!-- 03 GÖRÜ -->
+          <div class="tab-card glass-card">
+            <div class="tab-card__icon">
+              <svg class="sym sym--camera" viewBox="0 0 40 30" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter">
+                  <rect x="2" y="2" width="36" height="26" rx="2"/>
+                  <rect x="7" y="8" width="18" height="14" rx="1"/>
+                  <circle cx="16" cy="15" r="3"/>
+                  <rect x="28" y="10" width="5" height="6" rx="0.5"/>
+                </g>
+              </svg>
+            </div>
+            <div class="tab-card__body">
+              <span class="tab-card__num">03</span>
+              <h3 class="tab-card__title">GÖRÜ · Görüntüleme</h3>
+              <p class="tab-card__desc">632 kamera · görüş konileri · kör nokta analizi · kayıtlı medya</p>
+            </div>
+          </div>
+
+          <!-- 04 OPERASYON -->
+          <div class="tab-card glass-card">
+            <div class="tab-card__icon">
+              <svg class="sym" aria-hidden="true"><use href="assets/2525d.svg#uav"/></svg>
+            </div>
+            <div class="tab-card__body">
+              <span class="tab-card__num">04</span>
+              <h3 class="tab-card__title">OPERASYON</h3>
+              <p class="tab-card__desc">3.000 birim · A* patika bulma · İBB yol grafı · sevk dalgaları</p>
+            </div>
+          </div>
+
+          <!-- 05 HABERLEŞME -->
+          <div class="tab-card glass-card">
+            <div class="tab-card__icon">
+              <svg class="sym" aria-hidden="true"><use href="assets/2525d.svg#beacon"/></svg>
+            </div>
+            <div class="tab-card__body">
+              <span class="tab-card__num">05</span>
+              <h3 class="tab-card__title">HABERLEŞME</h3>
+              <p class="tab-card__desc">Telsiz ağı · ELT tehlike işaretleri · iletişim durumu</p>
+            </div>
+          </div>
+
+          <!-- 06 ALTYAPI -->
+          <div class="tab-card glass-card">
+            <div class="tab-card__icon">
+              <svg class="sym" aria-hidden="true"><use href="assets/2525d.svg#blockage"/></svg>
+            </div>
+            <div class="tab-card__body">
+              <span class="tab-card__num">06</span>
+              <h3 class="tab-card__title">ALTYAPI</h3>
+              <p class="tab-card__desc">Elektrik · su · gaz kademeli çöküş paneli · kritik varlıklar</p>
+            </div>
+          </div>
+
+          <!-- 07 ADLİ -->
+          <div class="tab-card glass-card">
+            <div class="tab-card__icon">
+              <svg class="sym" aria-hidden="true"><use href="assets/2525d.svg#sar"/></svg>
+            </div>
+            <div class="tab-card__body">
+              <span class="tab-card__num">07</span>
+              <h3 class="tab-card__title">ADLİ</h3>
+              <p class="tab-card__desc">Adli vaka paneli · olay yeri · kanıt zinciri · raporlama</p>
+            </div>
+          </div>
+
+          <!-- 08 KAYIT -->
+          <div class="tab-card glass-card">
+            <div class="tab-card__icon">
+              <svg class="sym sym--camera" viewBox="0 0 40 30" aria-hidden="true">
+                <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" stroke-linejoin="miter">
+                  <rect x="2" y="2" width="36" height="26" rx="2"/>
+                  <circle cx="20" cy="15" r="6"/>
+                  <polygon points="18,12 18,18 24,15"/>
+                </g>
+              </svg>
+            </div>
+            <div class="tab-card__body">
+              <span class="tab-card__num">08</span>
+              <h3 class="tab-card__title">KAYIT</h3>
+              <p class="tab-card__desc">Operasyon kaydı · oynatma · zaman çizelgesi incelemesi</p>
+            </div>
+          </div>
+
+          <!-- 09 OSINT -->
+          <div class="tab-card glass-card">
+            <div class="tab-card__icon">
+              <svg class="sym" aria-hidden="true"><use href="assets/2525d.svg#flight"/></svg>
+            </div>
+            <div class="tab-card__body">
+              <span class="tab-card__num">09</span>
+              <h3 class="tab-card__title">OSINT</h3>
+              <p class="tab-card__desc">Açık kaynak istihbaratı · jeo-konumlu sivil etki takibi</p>
+            </div>
+          </div>
+
+          <!-- 10 UTILITY -->
+          <div class="tab-card glass-card">
+            <div class="tab-card__icon">
+              <svg class="sym" aria-hidden="true"><use href="assets/2525d.svg#vessel"/></svg>
+            </div>
+            <div class="tab-card__body">
+              <span class="tab-card__num">10</span>
+              <h3 class="tab-card__title">UTILITY</h3>
+              <p class="tab-card__desc">Ağ topolojisi · sistem durumu · bağlantı haritası</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ TECH STACK ═══════════ -->
+    <section class="tech" aria-labelledby="tech-heading">
+      <div class="tech__inner reveal">
+        <span class="kicker">// TEKNOLOJİ</span>
+        <h2 class="tech__heading" id="tech-heading">Modern, Sıfır Bağımlılıklı Mimari</h2>
+        <p class="tech__sub">Tamamen statik SPA — arka uç sunucusu yok. GitHub Pages'e dağıtılır.</p>
+
+        <div class="tech__grid">
+          <div class="tech__item glass-card">
+            <span class="tech__name">React 19</span>
+            <span class="tech__meta">Strict Mode · Concurrent</span>
+          </div>
+          <div class="tech__item glass-card">
+            <span class="tech__name">TypeScript 5.6</span>
+            <span class="tech__meta">strict · noUncheckedIndexedAccess</span>
+          </div>
+          <div class="tech__item glass-card">
+            <span class="tech__name">MapLibre GL v5</span>
+            <span class="tech__meta">WebGL2 · vektör altlık</span>
+          </div>
+          <div class="tech__item glass-card">
+            <span class="tech__name">deck.gl v9</span>
+            <span class="tech__meta">3B bindirme · ortak WebGL bağlamı</span>
+          </div>
+          <div class="tech__item glass-card">
+            <span class="tech__name">Zustand v5</span>
+            <span class="tech__meta">durum yönetimi</span>
+          </div>
+          <div class="tech__item glass-card">
+            <span class="tech__name">Vite 6 · SWC</span>
+            <span class="tech__meta">derleme · HMR</span>
+          </div>
+          <div class="tech__item glass-card">
+            <span class="tech__name">Tailwind CSS v4</span>
+            <span class="tech__meta">stil sistemi</span>
+          </div>
+          <div class="tech__item glass-card tech__item--highlight">
+            <span class="tech__name">Arka Uç Yok</span>
+            <span class="tech__meta">statik SPA · GitHub Pages</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ MİMARİ & YÖNTEMLER ═══════════ -->
+    <section class="mimari" id="mimari" aria-labelledby="mimari-heading">
+      <div class="mimari__inner reveal">
+        <span class="kicker">// MİMARİ &amp; YÖNTEMLER</span>
+        <h2 class="mimari__heading" id="mimari-heading">MİMARİ &amp; YÖNTEMLER</h2>
+        <p class="mimari__sub">Architecture &amp; Methods — teknik altyapının akademik düzeyde açıklaması. Parçalar nasıl bağlanıyor?</p>
+
+        <!-- ── 1. RENDERING PIPELINE ── -->
+        <article class="mimari-card glass-card reveal" aria-labelledby="mim-1">
+          <span class="kicker">// 01 · RENDER HATTI</span>
+          <h3 class="mimari-card__title" id="mim-1">Tek Paylaşımlı WebGL2 Bağlamı</h3>
+          <p class="mimari-card__desc">
+            MapLibre GL v5 <strong>altlık haritayı</strong> (vektör karolar, WebGL2) çizer. deck.gl v9
+            <strong>veri bindirmelerini</strong> (3B) aynı bağlamda çizer. Kritik mimari karar:
+            deck.gl, MapLibre'nin WebGL bağlamını <strong>paylaşan bir ara katman</strong> olarak
+            monte edilir — ikinci bir stacked canvas değildir. Bu sayede yükseltilmiş binalar,
+            devriye rotaları, olaylar ve uydular altlık harita ile <strong>derinlik-doğru</strong>
+            birleşir, tek bir render döngüsünde.
+          </p>
+          <p class="mimari-card__desc">
+            Sonuç: <strong>Three.js yoktur</strong> — deck.gl, haritanın GL bağlamı içinde yaşayan
+            3B motorudur. Kullanılan katman tipleri: <span class="mono-label">PolygonLayer</span>
+            (yükseltilmiş binalar), <span class="mono-label">PathLayer</span> (devriye rotaları),
+            <span class="mono-label">ScatterplotLayer</span> (olaylar / OSINT / uydular / kameralar),
+            <span class="mono-label">IconLayer</span> + <span class="mono-label">SimpleMeshLayer</span>
+            (MIL-STD sembolleri + 3B kamera frustumları),
+            <span class="mono-label">BitmapLayer</span> (görüş alanı),
+            <span class="mono-label">HeatmapLayer</span> (kamera kapsama yoğunluğu).
+          </p>
+          <div class="flow-diagram" aria-label="Render hattı veri akış diyagramı">
+            <span class="flow-box">İBB<br>vektör karo</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-box flow-box--accent">MapLibre GL<br><small>WebGL2</small></span>
+            <span class="flow-arrow">⇄</span>
+            <span class="flow-box flow-box--accent">deck.gl<br>katmanları</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-box">tek kompozit<br>kare</span>
+          </div>
+        </article>
+
+        <!-- ── 2. STATE & REACTIVITY ── -->
+        <article class="mimari-card glass-card reveal" aria-labelledby="mim-2">
+          <span class="kicker">// 02 · DURUM &amp; REAKTİVİTE</span>
+          <h3 class="mimari-card__title" id="mim-2">Zustand Tek Deposu, Seçici Abonelikleri</h3>
+          <p class="mimari-card__desc">
+            Tek bir Zustand v5 deposu, alanlara bölünmüş (<span class="mono-label">entities</span> /
+            <span class="mono-label">c2</span> / <span class="mono-label">dock</span>). Bileşenler
+            <strong>dar seçicilere</strong> abone olur — bir araç konum güncellemesi yalnızca onu
+            okuyan bileşeni yeniden render eder.
+          </p>
+          <p class="mimari-card__desc">
+            <span class="mono-label">subscribeWithSelector</span>, emirsel tüketicilerin (harita
+            fly-to, sim sürücüsü) React yeniden render'ları olmadan belirli anahtarlara tepki
+            vermesini sağlar. Bu sayede <strong>3.000 hareketli birim</strong> akıcı kalır:
+            deck.gl katmanları birim başına React durumu değil, <strong>tek bir anlık görüntü
+            dizisi</strong> okur.
+          </p>
+        </article>
+
+        <!-- ── 3. VEHICLE ROUTING ── -->
+        <article class="mimari-card glass-card reveal" aria-labelledby="mim-3">
+          <span class="kicker">// 03 · ARAÇ ROTALAMA</span>
+          <h3 class="mimari-card__title" id="mim-3">Gerçek Yol Grafı + A*</h3>
+          <p class="mimari-card__desc">
+            İBB CKAN açık verisi (tier-1 acil durum yolları + ana arterler),
+            <span class="mono-label">scripts/build-road-graph.mjs</span> ile bir komşuluk grafına
+            (<span class="mono-label">road-graph.json</span>) derlenir: düğümler = kavşaklar,
+            kenarlar = <strong>haversine</strong> mesafesi ile ağırlıklandırılmış segmentler.
+            Parçalar, ağın bağlantılı olması için <strong>union-find</strong> yakınlık geçişi
+            ile birleştirilir.
+          </p>
+          <p class="mimari-card__desc">
+            PatrolEngine, birimleri <strong>gerçek İstanbul sokaklarında</strong> yönlendirmek
+            için bu graf üzerinde <strong>A*</strong> (haversine kabul edilebilir sezgisel)
+            çalıştırır — sahte tur tekrarları yok. Performans yöntemi:
+            <strong>tembel bacak değerlendirmesi</strong> + tik başına rota bütçesi
+            (<span class="mono-label">MAX_ROUTES_PER_TICK</span>); birimler park edip
+            kuyruğa girer, her anlık görüntüde birkaç A* çözümü tüketir. Böylece ilk yükleme
+            ve kararlı durum, 3.000 birimde kare bütçesi içinde kalır.
+          </p>
+          <div class="flow-diagram" aria-label="Araç rotalama veri akış diyagramı">
+            <span class="flow-box">CKAN<br>yol verisi</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-box">build-road-graph<br><small>union-find + haversine</small></span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-box">road-graph<br>.json</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-box flow-box--accent">A*</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-box flow-box--accent">Patrol<br>Engine</span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-box">deck.gl<br>PathLayer</span>
+          </div>
+        </article>
+
+        <!-- ── 4. SATELLITES ── -->
+        <article class="mimari-card glass-card reveal" aria-labelledby="mim-4">
+          <span class="kicker">// 04 · UYDULAR</span>
+          <h3 class="mimari-card__title" id="mim-4">SGP4 — Web Worker'da Yörünge Hesaplama</h3>
+          <p class="mimari-card__desc">
+            Celestrak'tan gerçek <strong>TLE</strong> eleman setleri (15.000+ nesne).
+            <span class="mono-label">satellite.js</span> <strong>SGP4</strong> yayılımı, ana iş
+            parçacığının dışında, özel bir <strong>Web Worker</strong> içinde ~1.5 Hz hızında
+            çalışır. Pozisyonlar <strong>paketlenmiş tipli diziler</strong> (transferable) olarak
+            geri döner ve küre üzerinde bir ScatterplotLayer'a decode edilir. Kategori
+            filtreleme, worker'a itilen bir <strong>bitmask</strong> ile yapılır — ana iş
+            parçacığı asla 15k nesne üzerinde döngü yapmaz.
+          </p>
+        </article>
+
+        <!-- ── 5. MARMARA SCENARIO ── -->
+        <article class="mimari-card glass-card reveal" aria-labelledby="mim-5">
+          <span class="kicker">// 05 · SENARYO MOTORU</span>
+          <h3 class="mimari-card__title" id="mim-5">Deterministik, Tohumlanmış, Tekrarlanabilir</h3>
+          <p class="mimari-card__desc">
+            <strong>Saf</strong> bir <span class="mono-label">ScenarioEngine</span>: TÜM
+            rastgelelik inşa sırasında tüketilir (tohumlanmış hash → ilçe bazlı zemin
+            büyütmesi; altyapı seçimleri gerçek utility düğüm ID'lerinden). Böylece
+            <span class="mono-label">tick(simMs)</span> <strong>saf bir eşik-aşım
+            fonksiyonudur</strong> — aynı tohum ⇒ aynı çalışma, kare hızından bağımsız.
+          </p>
+          <p class="mimari-card__desc">
+            Çıktılar: yer hareketi zayıflaması × ilçe bazlı zemin → <strong>hasar choropleth</strong>
+            (yeşil→kehribar→kırmızı); bir kayıp/olay <strong>ani talep çarpanı</strong>
+            (fazlar boyunca ≈1→8→3); patrol engine'e <strong>sevk dalgaları</strong>; bir
+            <strong>altyapı kaskadı</strong>. 500 ms'lik bir sürücü bunları canlı kokpit
+            durumuna eşler (KRDAE deprem olayı, flaş telsiz, MASCAL, OSINT dalgası,
+            devre dışı kalan utility düğümleri).
+          </p>
+        </article>
+
+        <!-- ── 6. LIVE DATA + SYNTHETIC NEST ── -->
+        <article class="mimari-card glass-card reveal" aria-labelledby="mim-6">
+          <span class="kicker">// 06 · CANLI VERİ + SENTETİK YUVA</span>
+          <h3 class="mimari-card__title" id="mim-6">Dürüstlük Doktrini — Bir YÖNTEM, kusur değil</h3>
+          <p class="mimari-card__desc">
+            <strong>Gerçek beslemeler:</strong> OpenSky ADS-B (60 s yoklama, tekrarlayan
+            başarısızlıklardan sonra dürüst bir SIM yedeğiyle production-live), AFAD
+            uyarıları, Celestrak TLE'leri, İBB CKAN yolları.
+          </p>
+          <p class="mimari-card__desc">
+            <strong>Simüle edilmiş beslemeler:</strong> devriyeler, ELT tehlike işaretleri,
+            AIS denizcilik, OSINT olayları, MOBESE kamera önizlemeleri, İhbar/olay alımı.
+          </p>
+          <p class="mimari-card__desc">
+            <strong>Arka uç yoktur.</strong> Her şey istemci tarafında alınan bir public API
+            veya uygulama içinde üretilir. Her değer bir <strong>kaynak etiketi</strong>
+            taşır (KRDAE / AFAD / İBB / ICAO / AIS / TLE / OSINT / EST / SIM). Kaynak
+            dürüstlüğü bilinçli bir metodolojik duruştur.
+          </p>
+        </article>
+
+        <!-- ── 7. CAMERA MEDIA ── -->
+        <article class="mimari-card glass-card reveal" aria-labelledby="mim-7">
+          <span class="kicker">// 07 · KAMERA MEDYASI</span>
+          <h3 class="mimari-card__title" id="mim-7">Tarayıcı-Engelli Kaynak için Sunucu-Taraflı Edinim</h3>
+          <p class="mimari-card__desc">
+            İBB CCTV tarayıcıda gömülemez (X-Frame-Options + CSP + CORS). Yöntem:
+            <strong>sunucu-taraflı ffmpeg geçişi</strong> gerçek durağan kareler ve kısa
+            klipler yakalar, statik <strong>kaydedilmiş örnekler</strong> olarak sunulur,
+            dürüstçe etiketlenir (KAYIT / TEMSİLİ). Çalışan HLS sunucusu keşfedilmek
+            zorundaydı (<span class="mono-label">kamerayayin.ibb.istanbul</span>).
+          </p>
+        </article>
+
+        <!-- ── 8. BUILD, TYPES, SECURITY, DELIVERY ── -->
+        <article class="mimari-card glass-card reveal" aria-labelledby="mim-8">
+          <span class="kicker">// 08 · DERLEME, TİPLER, GÜVENLİK, DAĞITIM</span>
+          <h3 class="mimari-card__title" id="mim-8">Sıfır-Uyarılı Tip Güvenli Statik SPA</h3>
+          <p class="mimari-card__desc">
+            React 19 + <strong>Vite 6</strong> (SWC). <strong>TypeScript strict</strong>
+            (<span class="mono-label">noUncheckedIndexedAccess</span>,
+            <span class="mono-label">noUnusedLocals</span>) +
+            <strong>ESLint 0-uyarı</strong> eşiği. <strong>CSP-kilitli</strong>
+            (tek bir meta etiketi <span class="mono-label">connect-src</span>'yi yönetir;
+            <span class="mono-label">script-src 'self'</span> satır içi betikleri yasaklar).
+          </p>
+          <p class="mimari-card__desc">
+            <strong>Saf statik SPA</strong> olarak GitHub Pages'e
+            <span class="mono-label">/akom-cockpit-live/</span> tabanında dağıtılır.
+            İsteğe bağlı <strong>Tauri v2</strong> masaüstü kabuğu, canlı HLS için
+            tarayıcı CORS'unu aşar.
+          </p>
+          <p class="mimari-card__desc">
+            <strong>Vitest</strong> (birim, ~200 test) + <strong>Playwright</strong> (e2e)
+            ile test edilir; bir mikro <strong>benchmark</strong> 300 / 1.000 / 3.000
+            birimde devriye anlık görüntü maliyetini ölçer.
+          </p>
+        </article>
+
+        <!-- ── MASTER DIAGRAM ── -->
+        <article class="mimari-card glass-card reveal mimari-card--master" aria-labelledby="mim-master">
+          <span class="kicker">// 09 · ANA VERİ AKIŞ ŞEMASI</span>
+          <h3 class="mimari-card__title" id="mim-master">Parçalar Nasıl Bağlanıyor?</h3>
+          <div class="master-flow" aria-label="Ana sistem veri akış diyagramı">
+            <div class="master-flow__row">
+              <span class="flow-box">OpenSky<br><small>ADS-B</small></span>
+              <span class="flow-box">AFAD</span>
+              <span class="flow-box">Celestrak<br><small>TLE</small></span>
+              <span class="flow-box">İBB<br><small>CKAN</small></span>
+              <span class="flow-box flow-box--dim">Sentetik<br>Yuva</span>
+            </div>
+            <div class="master-flow__arrows">
+              <span>↓</span><span>↓</span><span>↓</span><span>↓</span><span>↓</span>
+            </div>
+            <div class="master-flow__row master-flow__row--single">
+              <span class="flow-box flow-box--accent flow-box--wide">Zustand Store</span>
+            </div>
+            <div class="master-flow__arrows">
+              <span>↙</span><span>↓</span><span>↘</span>
+            </div>
+            <div class="master-flow__row master-flow__row--triple">
+              <span class="flow-box">A* Patrol<br>Engine</span>
+              <span class="flow-box">SGP4<br>Worker</span>
+              <span class="flow-box">Scenario<br>Engine</span>
+            </div>
+            <div class="master-flow__arrows">
+              <span>↓</span><span>↓</span><span>↓</span>
+            </div>
+            <div class="master-flow__row master-flow__row--single">
+              <span class="flow-box flow-box--accent flow-box--wide">deck.gl Katmanları ⇄ MapLibre GL</span>
+            </div>
+            <div class="master-flow__arrows">
+              <span>↓</span>
+            </div>
+            <div class="master-flow__row master-flow__row--single">
+              <span class="flow-box flow-box--wide">HUD · 10 Görev Sekmesi</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ FINAL CTA ═══════════ -->
+    <section class="cta" aria-labelledby="cta-heading">
+      <div class="cta__inner reveal">
+        <h2 class="cta__heading" id="cta-heading">Kokpit'i canlı deneyin</h2>
+        <p class="cta__text">
+          İstanbul'un kriz koordinasyon kokpitini tarayıcınızda keşfedin. Tüm 10 görev sekmesi,
+          canlı sensör verileri, 3B harita ve Marmara deprem senaryosu sizi bekliyor.
+        </p>
+        <a href="https://ertugrul9134.github.io/akom-cockpit-live/" class="btn btn--primary btn--lg cta__btn" target="_blank" rel="noopener">
+          CANLI DEMO'YU AÇ ↗
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__wordmark">AKOM</span>
+        <span class="footer__tagline">Afet Koordinasyon Merkezi</span>
+      </div>
+      <div class="footer__links">
+        <a href="https://ertugrul9134.github.io/akom-cockpit-live/" target="_blank" rel="noopener">Canlı Demo</a>
+        <a href="https://github.com/ertugrul9134/akom-cockpit-live" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="footer__note">
+        Built by Ertuğrul · Harita Mühendisliği · YTÜ<br>
+        Bu bir çalışan prototip / portfolyo demo sunumudur. Tüm veriler kaynak etiketlidir:
+        canlı (LIVE) veya simüle (SIM). Bir kamu kurumu dağıtımı değildir.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Hidden sprite reference (2525d is loaded via external SVG <use>) -->
+  <script src="app.js"></script>
+</body>
+</html>
