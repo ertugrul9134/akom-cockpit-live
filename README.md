@@ -6,4 +6,4 @@ This repository hosts the production build of the AKOM Crisis Cockpit so
 GitHub Pages can serve it publicly. The source is in a private repo and
 is auto-pushed here via `npm run deploy`.
 
-Auto-deployed at 2026-06-13T12:04:14.972Z.
+Auto-deployed at 2026-06-13T12:47:08.994Z.

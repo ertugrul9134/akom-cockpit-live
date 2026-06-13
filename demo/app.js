@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════
    AKOM Demo Walkthrough — app.js
-   Vanilla JS: scroll-reveal + smooth nav + live İhbar feed
+   Vanilla JS: scroll-reveal + smooth nav + live Tipline feed
    ═══════════════════════════════════════════════ */
 
 (function () {
@@ -53,7 +53,7 @@
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   updateActiveNav();
 
-  /* ─── CANLI İHBAR · OLAY AKIŞI ─── */
+  /* ─── LIVE TIPLINE · EVENT FEED ─── */
 
   const feedEl = document.getElementById('ihbar-feed');
   const activeCountEl = document.getElementById('active-count');
@@ -63,15 +63,15 @@
 
   // ── Incident data pool ──
   const incidentTypes = [
-    { id: 'collapse', label: 'Çöküntü', sym: 'sar', chipClass: 'chip--red', status: 'YENİ' },
-    { id: 'fire',     label: 'Yangın',  sym: 'fire', chipClass: 'chip--orange', status: 'YENİ' },
-    { id: 'flood',    label: 'Sel',     sym: 'sar', chipClass: 'chip--blue', status: 'YENİ' },
-    { id: 'gas',      label: 'Gaz Kaçağı', sym: 'fire', chipClass: 'chip--yellow', status: 'YENİ' },
-    { id: 'hazmat',   label: 'HAZMAT',  sym: 'pol', chipClass: 'chip--violet', status: 'YENİ' },
-    { id: 'mascal',   label: 'MASCAL',  sym: 'amb', chipClass: 'chip--red', status: 'YENİ' },
-    { id: 'collapse2',label: 'Çöküntü', sym: 'k9', chipClass: 'chip--red', status: 'YENİ' },
-    { id: 'fire2',    label: 'Yangın',  sym: 'fire', chipClass: 'chip--orange', status: 'YENİ' },
-    { id: 'flood2',   label: 'Sel',     sym: 'hems', chipClass: 'chip--blue', status: 'YENİ' },
+    { id: 'collapse', label: 'Collapse', sym: 'sar', chipClass: 'chip--red', status: 'NEW' },
+    { id: 'fire',     label: 'Fire',     sym: 'fire', chipClass: 'chip--orange', status: 'NEW' },
+    { id: 'flood',    label: 'Flood',    sym: 'sar', chipClass: 'chip--blue', status: 'NEW' },
+    { id: 'gas',      label: 'Gas Leak', sym: 'fire', chipClass: 'chip--yellow', status: 'NEW' },
+    { id: 'hazmat',   label: 'HAZMAT',   sym: 'pol', chipClass: 'chip--violet', status: 'NEW' },
+    { id: 'mascal',   label: 'MASCAL',   sym: 'amb', chipClass: 'chip--red', status: 'NEW' },
+    { id: 'collapse2',label: 'Collapse', sym: 'k9', chipClass: 'chip--red', status: 'NEW' },
+    { id: 'fire2',    label: 'Fire',     sym: 'fire', chipClass: 'chip--orange', status: 'NEW' },
+    { id: 'flood2',   label: 'Flood',    sym: 'hems', chipClass: 'chip--blue', status: 'NEW' },
   ];
 
   const districts = [
@@ -80,43 +80,43 @@
     'Büyükçekmece', 'Küçükçekmece', 'Bağcılar', 'Bahçelievler',
   ];
 
-  const sources = ['İHBAR-112', 'MOBESE', 'AFAD', 'KRDAE', 'CV'];
+  const sources = ['TIP-112', 'MOBESE', 'AFAD', 'KRDAE', 'CV'];
 
   const reports = {
     collapse: [
-      '4 katlı bina çöktü, enkaz altında kalanlar var',
-      'Bitişik nizam 2 bina ağır hasarlı, tahliye gerekli',
-      'Köprü ayağında çökme, yol trafiğe kapandı',
+      '4-story building collapsed, people trapped under rubble',
+      '2 adjacent buildings severely damaged, evacuation needed',
+      'Bridge pier collapse, road closed to traffic',
     ],
     fire: [
-      'Sanayi bölgesinde büyük çaplı yangın, kimyasal depo riski',
-      'Konut yangını üst katlara sıçradı, itfaiye sevk edildi',
-      'Akaryakıt istasyonu yakınında yangın ihbarı',
+      'Large-scale fire in industrial zone, chemical depot risk',
+      'Residential fire spread to upper floors, fire brigade dispatched',
+      'Fire reported near fuel station',
     ],
     flood: [
-      'Dere taştı, zemin katları su bastı, 12 kişi mahsur',
-      'Viyadük altı su doldu, araçlar mahsur kaldı',
-      'Kanalizasyon taşkını, 3 mahallede su baskını',
+      'Creek overflow, ground floors flooded, 12 people stranded',
+      'Underpass flooded, vehicles trapped',
+      'Sewage overflow, flooding in 3 neighborhoods',
     ],
     gas: [
-      'Doğalgaz hattı patlağı, bölge tahliye ediliyor',
-      'Kuvvetli gaz kokusu ihbarı, ekipler sevk edildi',
-      'Ana dağıtım hattında basınç kaybı tespit edildi',
+      'Natural gas line rupture, area being evacuated',
+      'Strong gas odor reported, crews dispatched',
+      'Pressure loss detected in main distribution line',
     ],
     hazmat: [
-      'Kimyasal sızıntı ihbarı, AFAD ekipleri yolda',
-      'Endüstriyel tesiste tehlikeli madde döküntüsü',
-      'Laboratuvar kazası, biyolojik ajan şüphesi',
+      'Chemical spill reported, AFAD teams en route',
+      'Hazardous material leak at industrial facility',
+      'Laboratory accident, suspected biological agent',
     ],
     mascal: [
-      'Yüksek katlı binada çok sayıda yaralı, triyaj başlatıldı',
-      'Toplu taşıma kazası, 20+ yaralı ihbarı',
-      'Stadyum çevresinde izdiham, çoklu yaralı',
+      'Multiple casualties in high-rise building, triage initiated',
+      'Mass transit accident, 20+ casualties reported',
+      'Crowd crush near stadium, multiple injured',
     ],
   };
 
-  const statusOrder = ['YENİ', 'ATANDI', 'MÜDAHALE'];
-  const statusClassMap = { 'YENİ': 'status--yeni', 'ATANDI': 'status--atandi', 'MÜDAHALE': 'status--mudahale' };
+  const statusOrder = ['NEW', 'ASSIGNED', 'RESPONDING'];
+  const statusClassMap = { 'NEW': 'status--yeni', 'ASSIGNED': 'status--atandi', 'RESPONDING': 'status--mudahale' };
 
   let rows = [];
   let totalEvents = 0;
@@ -125,13 +125,13 @@
 
   // ── Pre-populate with a few static rows ──
   const seedEvents = [
-    { typeId: 'collapse', district: 'Avcılar', report: '4 katlı bina çöktü, enkaz altında kalanlar var', source: 'İHBAR-112', status: 'MÜDAHALE', ts: Date.now() - 420000 },
-    { typeId: 'fire', district: 'Zeytinburnu', report: 'Sanayi bölgesinde büyük çaplı yangın, kimyasal depo riski', source: 'MOBESE', status: 'ATANDI', ts: Date.now() - 300000 },
-    { typeId: 'flood', district: 'Kadıköy', report: 'Dere taştı, zemin katları su bastı, 12 kişi mahsur', source: 'AFAD', status: 'ATANDI', ts: Date.now() - 240000 },
-    { typeId: 'gas', district: 'Beyoğlu', report: 'Doğalgaz hattı patlağı, bölge tahliye ediliyor', source: 'KRDAE', status: 'YENİ', ts: Date.now() - 180000 },
-    { typeId: 'hazmat', district: 'Üsküdar', report: 'Kimyasal sızıntı ihbarı, AFAD ekipleri yolda', source: 'İHBAR-112', status: 'YENİ', ts: Date.now() - 120000 },
-    { typeId: 'mascal', district: 'Fatih', report: 'Yüksek katlı binada çok sayıda yaralı, triyaj başlatıldı', source: 'CV', status: 'YENİ', ts: Date.now() - 60000 },
-    { typeId: 'collapse2', district: 'Bakırköy', report: 'Bitişik nizam 2 bina ağır hasarlı, tahliye gerekli', source: 'MOBESE', status: 'ATANDI', ts: Date.now() - 360000 },
+    { typeId: 'collapse', district: 'Avcılar', report: '4-story building collapsed, people trapped under rubble', source: 'TIP-112', status: 'RESPONDING', ts: Date.now() - 420000 },
+    { typeId: 'fire', district: 'Zeytinburnu', report: 'Large-scale fire in industrial zone, chemical depot risk', source: 'MOBESE', status: 'ASSIGNED', ts: Date.now() - 300000 },
+    { typeId: 'flood', district: 'Kadıköy', report: 'Creek overflow, ground floors flooded, 12 people stranded', source: 'AFAD', status: 'ASSIGNED', ts: Date.now() - 240000 },
+    { typeId: 'gas', district: 'Beyoğlu', report: 'Natural gas line rupture, area being evacuated', source: 'KRDAE', status: 'NEW', ts: Date.now() - 180000 },
+    { typeId: 'hazmat', district: 'Üsküdar', report: 'Chemical spill reported, AFAD teams en route', source: 'TIP-112', status: 'NEW', ts: Date.now() - 120000 },
+    { typeId: 'mascal', district: 'Fatih', report: 'Multiple casualties in high-rise building, triage initiated', source: 'CV', status: 'NEW', ts: Date.now() - 60000 },
+    { typeId: 'collapse2', district: 'Bakırköy', report: '2 adjacent buildings severely damaged, evacuation needed', source: 'MOBESE', status: 'ASSIGNED', ts: Date.now() - 360000 },
   ];
 
   function findType(typeId) {
@@ -140,12 +140,12 @@
 
   function formatTime(ts) {
     const diffSec = Math.floor((Date.now() - ts) / 1000);
-    if (diffSec <= 3) return 'şimdi';
-    if (diffSec < 60) return diffSec + ' sn önce';
+    if (diffSec <= 3) return 'now';
+    if (diffSec < 60) return diffSec + 's ago';
     const min = Math.floor(diffSec / 60);
-    if (min < 60) return min + ' dk önce';
+    if (min < 60) return min + 'm ago';
     const hr = Math.floor(min / 60);
-    return hr + ' sa önce';
+    return hr + 'h ago';
   }
 
   function createRowHTML(event) {
@@ -176,7 +176,7 @@
     // Keep max 15 rows visible
     const visible = rows.slice(-15);
     feedEl.innerHTML = visible.map((ev, i) => {
-      const isNewest = i === visible.length - 1 && ev.status === 'YENİ';
+      const isNewest = i === visible.length - 1 && ev.status === 'NEW';
       let html = createRowHTML(ev);
       // Inject status + row class
       const type = findType(ev.typeId);
@@ -200,7 +200,7 @@
     });
 
     // Update counters
-    const active = rows.filter((r) => r.status === 'YENİ' || r.status === 'ATANDI').length;
+    const active = rows.filter((r) => r.status === 'NEW' || r.status === 'ASSIGNED').length;
     if (activeCountEl) activeCountEl.textContent = active;
     if (totalCountEl) totalCountEl.textContent = totalEvents;
   }
@@ -209,11 +209,11 @@
   function advanceStatuses() {
     let changed = false;
     rows.forEach((row) => {
-      if (row.status === 'YENİ' && Math.random() < 0.3) {
-        row.status = 'ATANDI';
+      if (row.status === 'NEW' && Math.random() < 0.3) {
+        row.status = 'ASSIGNED';
         changed = true;
-      } else if (row.status === 'ATANDI' && Math.random() < 0.2) {
-        row.status = 'MÜDAHALE';
+      } else if (row.status === 'ASSIGNED' && Math.random() < 0.2) {
+        row.status = 'RESPONDING';
         changed = true;
       }
     });
@@ -234,7 +234,7 @@
       district,
       report,
       source,
-      status: 'YENİ',
+      status: 'NEW',
       ts: Date.now(),
     };
 
@@ -244,8 +244,8 @@
   }
 
   function getStatusColor(status) {
-    if (status === 'MÜDAHALE') return '#10B981';
-    if (status === 'ATANDI') return '#3B82F6';
+    if (status === 'RESPONDING') return '#10B981';
+    if (status === 'ASSIGNED') return '#3B82F6';
     return '#F59E0B';
   }
 

@@ -629,11 +629,14 @@ em { font-style: italic; }
 }
 
 /* ═══════════════════════════════════════════════
-   MİMARİ & YÖNTEMLER (Architecture & Methods)
+   ARCHITECTURE & METHODS
    ═══════════════════════════════════════════════ */
 .mimari {
   position: relative; z-index: 1;
   padding: 6rem var(--container-pad);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(245,158,11,.04), transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(245,158,11,.02), transparent 40%);
 }
 .mimari__inner {
   max-width: var(--container-max); margin: 0 auto;
@@ -651,14 +654,35 @@ em { font-style: italic; }
 
 /* ── Mimari cards ── */
 .mimari-card {
-  margin-top: 3rem; padding: 2rem 2.5rem;
+  margin-top: 2.5rem; padding: 2rem 2.5rem;
   text-align: left;
+  position: relative;
+  overflow: hidden;
+  background: rgba(18,18,26,0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 4px 24px rgba(0,0,0,.2);
+  transition: border-color 300ms ease-out, box-shadow 300ms ease-out, transform 300ms ease-out;
 }
-.mimari-card:first-of-type { margin-top: 3.5rem; }
+.mimari-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245,158,11,.25), transparent);
+  opacity: 0.5;
+}
+.mimari-card:hover {
+  border-color: rgba(245,158,11,.15);
+  box-shadow: 0 0 32px rgba(245,158,11,.08), 0 8px 32px rgba(0,0,0,.3);
+  transform: translateY(-2px);
+}
+.mimari-card:first-of-type { margin-top: 3rem; }
 .mimari-card__title {
   font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600;
   color: var(--foreground); letter-spacing: -0.025em;
   margin-bottom: 1rem; line-height: 1.3;
+  position: relative;
 }
 .mimari-card__desc {
   font-size: var(--text-base); color: var(--muted-foreground);
@@ -678,20 +702,38 @@ em { font-style: italic; }
 /* ── Inline flow diagram ── */
 .flow-diagram {
   margin-top: 1.5rem;
-  display: flex; align-items: center; gap: 0.5rem;
+  display: flex; align-items: center; gap: 0.625rem;
   flex-wrap: wrap; justify-content: center;
-  padding: 1.25rem;
-  background: rgba(10,10,15,0.4); border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
+  padding: 1.5rem 1.25rem;
+  background: rgba(10,10,15,0.5);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(245,158,11,.1);
+  box-shadow: inset 0 0 40px rgba(245,158,11,.03);
+  position: relative;
+  overflow: hidden;
+}
+.flow-diagram::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(245,158,11,.04), transparent 70%);
+  pointer-events: none;
 }
 .flow-box {
   display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
   font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
   text-align: center; line-height: 1.35;
   color: var(--foreground);
-  background: var(--card-solid); border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 0.5rem 0.875rem; min-width: 80px; min-height: 48px;
+  background: rgba(26,26,36,0.9);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  padding: 0.625rem 1rem; min-width: 88px; min-height: 52px;
+  position: relative;
+  transition: all 200ms ease-out;
+}
+.flow-box:hover {
+  border-color: rgba(245,158,11,.25);
+  box-shadow: 0 0 16px rgba(245,158,11,.1);
+  transform: translateY(-1px);
 }
 .flow-box small {
   font-size: 0.625rem; font-weight: 400; color: var(--muted-foreground);
@@ -699,39 +741,59 @@ em { font-style: italic; }
 }
 .flow-box--accent {
   border-color: rgba(245,158,11,.35);
-  box-shadow: 0 0 12px rgba(245,158,11,.1);
+  box-shadow: 0 0 16px rgba(245,158,11,.12);
+  background: rgba(245,158,11,0.06);
+}
+.flow-box--accent:hover {
+  border-color: rgba(245,158,11,.5);
+  box-shadow: 0 0 24px rgba(245,158,11,.2);
 }
 .flow-box--dim {
-  opacity: 0.55; border-style: dashed;
+  opacity: 0.5; border-style: dashed;
 }
-.flow-box--wide { min-width: 180px; }
+.flow-box--wide { min-width: 190px; }
 .flow-arrow {
-  font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;
+  font-family: var(--font-display); font-size: 1.375rem; font-weight: 600;
   color: var(--accent); flex-shrink: 0;
+  opacity: 0.8;
 }
 
 /* ── Master flow diagram ── */
 .master-flow {
   margin-top: 1.75rem;
-  display: flex; flex-direction: column; align-items: center; gap: 0.375rem;
-  padding: 2rem 1rem;
-  background: rgba(10,10,15,0.5); border-radius: var(--radius-xl);
-  border: 1px solid rgba(245,158,11,.12);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  padding: 2.25rem 1.5rem;
+  background: rgba(10,10,15,0.6);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(245,158,11,.14);
+  box-shadow: 0 0 40px rgba(245,158,11,.04), inset 0 0 60px rgba(245,158,11,.02);
+  position: relative;
+  overflow: hidden;
+}
+.master-flow::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(245,158,11,.06), transparent 40%),
+    radial-gradient(ellipse at 80% 100%, rgba(245,158,11,.04), transparent 40%);
+  pointer-events: none;
 }
 .master-flow__row {
-  display: flex; gap: 0.625rem; justify-content: center; flex-wrap: wrap;
+  display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
 }
-.master-flow__row--single { }
-.master-flow__row--triple { }
 .master-flow__arrows {
-  display: flex; gap: 0.5rem; justify-content: center;
-  font-family: var(--font-mono); font-size: 1rem; font-weight: 600;
-  color: var(--accent); opacity: 0.7;
+  display: flex; gap: 0.625rem; justify-content: center;
+  font-family: var(--font-mono); font-size: 1.0625rem; font-weight: 600;
+  color: var(--accent); opacity: 0.75;
 }
 
 .mimari-card--master {
-  border-color: rgba(245,158,11,.18);
-  box-shadow: 0 0 30px rgba(245,158,11,.06);
+  border-color: rgba(245,158,11,.2);
+  box-shadow: 0 0 40px rgba(245,158,11,.08), 0 8px 40px rgba(0,0,0,.35);
+}
+.mimari-card--master::before {
+  background: linear-gradient(90deg, transparent, rgba(245,158,11,.4), transparent);
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
@@ -739,8 +801,8 @@ em { font-style: italic; }
   .mimari__heading { font-size: var(--text-2xl); }
   .mimari-card { padding: 1.5rem; }
   .mimari-card__title { font-size: var(--text-xl); }
-  .flow-diagram { gap: 0.375rem; padding: 1rem 0.75rem; }
-  .flow-box { min-width: 64px; padding: 0.375rem 0.625rem; font-size: 0.6875rem; }
+  .flow-diagram { gap: 0.375rem; padding: 1.25rem 0.75rem; }
+  .flow-box { min-width: 64px; padding: 0.5rem 0.75rem; font-size: 0.6875rem; }
   .flow-box--wide { min-width: 140px; }
 }
 
@@ -748,9 +810,9 @@ em { font-style: italic; }
   .mimari { padding: 3rem 1rem; }
   .mimari__sub { font-size: var(--text-base); }
   .mimari-card { padding: 1.25rem; }
-  .flow-diagram { gap: 0.25rem; }
+  .flow-diagram { gap: 0.25rem; padding: 1rem 0.5rem; }
   .flow-arrow { font-size: 1rem; }
-  .flow-box { min-width: 52px; padding: 0.3rem 0.5rem; font-size: 0.625rem; }
+  .flow-box { min-width: 52px; padding: 0.35rem 0.5rem; font-size: 0.625rem; }
   .master-flow { padding: 1.25rem 0.75rem; }
 }
 
