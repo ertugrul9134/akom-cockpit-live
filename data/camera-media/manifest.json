@@ -1,0 +1,166 @@
+{
+  "generated": "2026-06-13T11:11:35Z",
+  "generator": "hermes",
+  "items": {
+    "buyuk-camlica": {
+      "name": "Büyük Çamlıca",
+      "image": "buyuk-camlica.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/buyuk-camlica-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/buyukcamlica.stream/playlist.m3u8",
+      "clip": "buyuk-camlica.mp4"
+    },
+    "dragos": {
+      "name": "Dragos",
+      "image": "dragos.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/dragos-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/dragos.stream/playlist.m3u8",
+      "clip": "dragos.mp4"
+    },
+    "eyup-sultan": {
+      "name": "Eyüp Sultan",
+      "image": "eyup-sultan.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/eyup-sultan-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/eyupsultan.stream/playlist.m3u8",
+      "clip": "eyup-sultan.mp4"
+    },
+    "hidiv-kasri": {
+      "name": "Hidiv Kasrı",
+      "image": "hidiv-kasri.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/hidiv-kasri-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/hidivkasri.stream/playlist.m3u8",
+      "clip": "hidiv-kasri.mp4"
+    },
+    "kadikoy": {
+      "name": "Kadıköy",
+      "image": "kadikoy.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/kadikoy-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/kadikoy.stream/playlist.m3u8",
+      "clip": "kadikoy.mp4"
+    },
+    "kapali-carsi": {
+      "name": "Kapalı Çarşı",
+      "image": "kapali-carsi.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "stand-in",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gran_Bazar,_Estambul,_Turqu%C3%ADa,_2024-09-29,_DD_04.jpg",
+      "note": "Stream confirmed down (404 on kamerayayin.ibb.istanbul, page shows 'Connection to server lost'). Stand-in: CC BY-SA 4.0 photo by Diego Delso via Wikimedia Commons."
+    },
+    "kiz-kulesi": {
+      "name": "Kız Kulesi",
+      "image": "kiz-kulesi.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/kiz-kulesi-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/kizkulesi.stream/playlist.m3u8",
+      "clip": "kiz-kulesi.mp4"
+    },
+    "kucukcekmece": {
+      "name": "Küçükçekmece",
+      "image": "kucukcekmece.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/kucukcekmece-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/kucukcekmece.stream/playlist.m3u8",
+      "clip": "kucukcekmece.mp4"
+    },
+    "metrohan": {
+      "name": "Metrohan",
+      "image": "metrohan.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "stand-in",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:IstanbulT%C3%BCnel_(4).JPG",
+      "note": "No camera page exists on istanbuluseyret.ibb.gov.tr. Stand-in: CC BY-SA photo of Metro Han/Tünel building by CeeGee via Wikimedia Commons."
+    },
+    "misir-carsisi": {
+      "name": "Mısır Çarşısı",
+      "image": "misir-carsisi.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/misir-carsisi-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/misircarsisi.stream/playlist.m3u8",
+      "clip": "misir-carsisi.mp4"
+    },
+    "miniaturk": {
+      "name": "Miniatürk",
+      "image": "miniaturk.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/miniaturk-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/miniaturk.stream/playlist.m3u8",
+      "clip": "miniaturk.mp4"
+    },
+    "pierre-lotti": {
+      "name": "Pierre Loti",
+      "image": "pierre-lotti.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/pierre-lotti-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/pierreloti.stream/playlist.m3u8 (stream slug is 'pierreloti' with single 't')",
+      "clip": "pierre-lotti.mp4"
+    },
+    "salacak": {
+      "name": "Salacak",
+      "image": "salacak.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/salacak-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/salacak.stream/playlist.m3u8",
+      "clip": "salacak.mp4"
+    },
+    "sarachane": {
+      "name": "Saraçhane",
+      "image": "sarachane.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/sarachane-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/sarachane.stream/playlist.m3u8",
+      "clip": "sarachane.mp4"
+    },
+    "sultanahmet-1": {
+      "name": "Sultanahmet 1",
+      "image": "sultanahmet-1.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/sultanahmet-1-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/sultanahmet1.stream/playlist.m3u8",
+      "clip": "sultanahmet-1.mp4"
+    },
+    "taksim-meydani": {
+      "name": "Taksim Meydanı",
+      "image": "taksim-meydani.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/taksim-meydani-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/taksim.stream/playlist.m3u8 (page slug is 'taksim-yeni', not 'taksim-meydani-yeni')",
+      "clip": "taksim-meydani.mp4"
+    },
+    "ulus-parki": {
+      "name": "Ulus Parkı",
+      "image": "ulus-parki.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/ulus-parki-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/ulusparki.stream/playlist.m3u8",
+      "clip": "ulus-parki.mp4"
+    },
+    "uskudar": {
+      "name": "Üsküdar",
+      "image": "uskudar.jpg",
+      "capturedAt": "2026-06-13T11:11:35Z",
+      "provenance": "live-frame",
+      "sourceUrl": "https://istanbuluseyret.ibb.gov.tr/uskudar-yeni/",
+      "note": "Frame-grabbed from embedded HLS at https://kamerayayin.ibb.istanbul/turistikcam/uskudar.stream/playlist.m3u8",
+      "clip": "uskudar.mp4"
+    }
+  }
+}

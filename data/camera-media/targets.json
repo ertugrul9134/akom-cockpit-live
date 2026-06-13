@@ -1,0 +1,26 @@
+{
+  "note": "18-camera tourism lineup from istanbuluseyret.ibb.gov.tr. Acquisition targets for the AKOM demo media pipeline. Keyed by stable `id` (must match src/feeds/ibb-mobese.ts).",
+  "hlsTemplate": "https://hls.ibb.gov.tr/ls/cam_turistik/<id>.stream/playlist.m3u8",
+  "hlsMirrorTemplate": "https://livestream.ibb.gov.tr/cam_turistik/<id>.stream/playlist.m3u8",
+  "pageTemplate": "https://istanbuluseyret.ibb.gov.tr/<slug>/",
+  "cameras": [
+    { "id": "buyuk-camlica", "slug": "buyuk-camlica-yeni", "name": "Büyük Çamlıca", "lat": 41.0287, "lng": 29.0697, "district": "Üsküdar" },
+    { "id": "dragos", "slug": "dragos-yeni", "name": "Dragos", "lat": 40.906973, "lng": 29.138509, "district": "Maltepe" },
+    { "id": "eyup-sultan", "slug": "eyup-sultan-yeni", "name": "Eyüp Sultan", "lat": 41.0480, "lng": 28.9337, "district": "Eyüpsultan" },
+    { "id": "hidiv-kasri", "slug": "hidiv-kasri-yeni", "name": "Hidiv Kasrı", "lat": 41.1175, "lng": 29.0790, "district": "Beykoz" },
+    { "id": "kadikoy", "slug": "kadikoy-yeni", "name": "Kadıköy", "lat": 40.9923, "lng": 29.0244, "district": "Kadıköy" },
+    { "id": "kapali-carsi", "slug": "kapali-carsi-yeni", "name": "Kapalı Çarşı", "lat": 41.0107, "lng": 28.9680, "district": "Fatih" },
+    { "id": "kiz-kulesi", "slug": "kiz-kulesi-yeni", "name": "Kız Kulesi", "lat": 41.017866, "lng": 29.008661, "district": "Üsküdar" },
+    { "id": "kucukcekmece", "slug": "kucukcekmece-yeni", "name": "Küçükçekmece", "lat": 40.991956, "lng": 28.77671, "district": "Küçükçekmece" },
+    { "id": "metrohan", "slug": "metrohan-yeni", "name": "Metrohan", "lat": 41.0286, "lng": 28.9760, "district": "Beyoğlu" },
+    { "id": "misir-carsisi", "slug": "misir-carsisi-yeni", "name": "Mısır Çarşısı", "lat": 41.0166, "lng": 28.9706, "district": "Fatih" },
+    { "id": "miniaturk", "slug": "miniaturk-yeni", "name": "Miniatürk", "lat": 41.0497, "lng": 28.9472, "district": "Beyoğlu" },
+    { "id": "pierre-lotti", "slug": "pierre-lotti-yeni", "name": "Pierre Loti", "lat": 41.0541, "lng": 28.9302, "district": "Eyüpsultan" },
+    { "id": "salacak", "slug": "salacak-yeni", "name": "Salacak", "lat": 41.0203, "lng": 29.0098, "district": "Üsküdar" },
+    { "id": "sarachane", "slug": "sarachane-yeni", "name": "Saraçhane", "lat": 41.0156, "lng": 28.9500, "district": "Fatih" },
+    { "id": "sultanahmet-1", "slug": "sultanahmet-1-yeni", "name": "Sultanahmet 1", "lat": 41.0058, "lng": 28.9768, "district": "Fatih" },
+    { "id": "taksim-meydani", "slug": "taksim-meydani-yeni", "name": "Taksim Meydanı", "lat": 41.037531, "lng": 28.986322, "district": "Beyoğlu" },
+    { "id": "ulus-parki", "slug": "ulus-parki-yeni", "name": "Ulus Parkı", "lat": 41.0568, "lng": 29.0334, "district": "Beşiktaş" },
+    { "id": "uskudar", "slug": "uskudar-yeni", "name": "Üsküdar", "lat": 41.02703, "lng": 29.015157, "district": "Üsküdar" }
+  ]
+}
